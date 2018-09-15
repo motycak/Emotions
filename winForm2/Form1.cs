@@ -33,6 +33,7 @@ namespace winForm2
             //FaceApi.DeleteFolderGroups();
             this.InitializeGrid();
             this.InitializeCamera();
+            progressBarAdv1.Value = 0;
         }
 
 
@@ -100,7 +101,8 @@ namespace winForm2
             Bitmap lastImage = (Bitmap)Image.FromFile(fileNameWithJpg, true);
 
             coreRecal.RecalcImage(fileNameWithJpg, actualPersons, lastImage);
-            //SetMaxLastEmotion(lastEmotion);
+            if (actualPersons.Data.Count() >0)
+                progressBarAdv1.Value = (int)actualPersons.Data.First().Happiness;
         }
 
 

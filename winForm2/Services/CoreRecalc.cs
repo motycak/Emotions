@@ -24,9 +24,6 @@ namespace winForm2
 
         private void RecalcFaces(List<Face> faces, BindigListData actualPersons, Image recalcImage)
         {
-
-
-
             this.SetActualEmotion(faces, actualPersons, recalcImage);
         }
 
