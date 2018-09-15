@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor1 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
             Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor2 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
             Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor gridColumnDescriptor3 = new Syncfusion.Windows.Forms.Grid.Grouping.GridColumnDescriptor();
@@ -48,6 +49,13 @@
             this.cmbResolutions = new System.Windows.Forms.ComboBox();
             this.cmbCameras = new System.Windows.Forms.ComboBox();
             this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
+            this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.buttonAdv1 = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.buttonAdv2 = new Syncfusion.Windows.Forms.ButtonAdv();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
             this.tabControlAdv1.SuspendLayout();
@@ -136,6 +144,9 @@
             // 
             // tabCamera
             // 
+            this.tabCamera.Controls.Add(this.buttonAdv2);
+            this.tabCamera.Controls.Add(this.buttonAdv1);
+            this.tabCamera.Controls.Add(this.lblTitle);
             this.tabCamera.Controls.Add(this.progressBarAdv1);
             this.tabCamera.Controls.Add(this.pictureBox1);
             this.tabCamera.Image = null;
@@ -153,9 +164,9 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 46);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(480, 387);
+            this.pictureBox1.Size = new System.Drawing.Size(480, 353);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -175,6 +186,10 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.autoLabel4);
+            this.tabSettings.Controls.Add(this.textBox2);
+            this.tabSettings.Controls.Add(this.textBox1);
+            this.tabSettings.Controls.Add(this.autoLabel3);
             this.tabSettings.Controls.Add(this.autoLabel2);
             this.tabSettings.Controls.Add(this.autoLabel1);
             this.tabSettings.Controls.Add(this.cmbResolutions);
@@ -214,7 +229,7 @@
             this.cmbResolutions.FormattingEnabled = true;
             this.cmbResolutions.Location = new System.Drawing.Point(109, 80);
             this.cmbResolutions.Name = "cmbResolutions";
-            this.cmbResolutions.Size = new System.Drawing.Size(121, 21);
+            this.cmbResolutions.Size = new System.Drawing.Size(213, 21);
             this.cmbResolutions.TabIndex = 1;
             this.cmbResolutions.SelectedIndexChanged += new System.EventHandler(this.cmbResolutions_SelectedIndexChanged);
             // 
@@ -223,7 +238,7 @@
             this.cmbCameras.FormattingEnabled = true;
             this.cmbCameras.Location = new System.Drawing.Point(109, 53);
             this.cmbCameras.Name = "cmbCameras";
-            this.cmbCameras.Size = new System.Drawing.Size(121, 21);
+            this.cmbCameras.Size = new System.Drawing.Size(213, 21);
             this.cmbCameras.TabIndex = 0;
             this.cmbCameras.SelectedIndexChanged += new System.EventHandler(this.cmbCameras_SelectedIndexChanged);
             // 
@@ -245,19 +260,89 @@
             this.progressBarAdv1.ForegroundImage = null;
             this.progressBarAdv1.GradientEndColor = System.Drawing.Color.Lime;
             this.progressBarAdv1.GradientStartColor = System.Drawing.Color.Red;
-            this.progressBarAdv1.Location = new System.Drawing.Point(507, 12);
+            this.progressBarAdv1.Location = new System.Drawing.Point(506, 46);
             this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.Empty};
             this.progressBarAdv1.Name = "progressBarAdv1";
             this.progressBarAdv1.ProgressOrientation = System.Windows.Forms.Orientation.Vertical;
             this.progressBarAdv1.SegmentWidth = 12;
-            this.progressBarAdv1.Size = new System.Drawing.Size(107, 387);
+            this.progressBarAdv1.Size = new System.Drawing.Size(107, 324);
             this.progressBarAdv1.TabIndex = 2;
             this.progressBarAdv1.Text = "progressBarAdv1";
             this.progressBarAdv1.ThemesEnabled = false;
             this.progressBarAdv1.TubeEndColor = System.Drawing.Color.Black;
             this.progressBarAdv1.TubeStartColor = System.Drawing.Color.Red;
             this.progressBarAdv1.WaitingGradientWidth = 400;
+            // 
+            // autoLabel3
+            // 
+            this.autoLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.autoLabel3.Location = new System.Drawing.Point(11, 110);
+            this.autoLabel3.Name = "autoLabel3";
+            this.autoLabel3.Size = new System.Drawing.Size(74, 15);
+            this.autoLabel3.TabIndex = 4;
+            this.autoLabel3.Text = "FaceApi Key";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(213, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(109, 137);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(62, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // autoLabel4
+            // 
+            this.autoLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.autoLabel4.Location = new System.Drawing.Point(11, 140);
+            this.autoLabel4.Name = "autoLabel4";
+            this.autoLabel4.Size = new System.Drawing.Size(80, 15);
+            this.autoLabel4.TabIndex = 7;
+            this.autoLabel4.Text = "Úspešnosť %";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Corbel", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblTitle.Location = new System.Drawing.Point(96, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(300, 49);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "BUĎ ŠŤASTNÝ !";
+            // 
+            // buttonAdv1
+            // 
+            this.buttonAdv1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdv1.BeforeTouchSize = new System.Drawing.Size(49, 23);
+            this.buttonAdv1.IsBackStageButton = false;
+            this.buttonAdv1.Location = new System.Drawing.Point(506, 376);
+            this.buttonAdv1.Name = "buttonAdv1";
+            this.buttonAdv1.Size = new System.Drawing.Size(49, 23);
+            this.buttonAdv1.TabIndex = 4;
+            this.buttonAdv1.Text = "Štart";
+            // 
+            // buttonAdv2
+            // 
+            this.buttonAdv2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdv2.BeforeTouchSize = new System.Drawing.Size(49, 23);
+            this.buttonAdv2.IsBackStageButton = false;
+            this.buttonAdv2.Location = new System.Drawing.Point(564, 376);
+            this.buttonAdv2.Name = "buttonAdv2";
+            this.buttonAdv2.Size = new System.Drawing.Size(49, 23);
+            this.buttonAdv2.TabIndex = 5;
+            this.buttonAdv2.Text = "Stop";
             // 
             // Form1
             // 
@@ -276,6 +361,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).EndInit();
             this.tabControlAdv1.ResumeLayout(false);
             this.tabCamera.ResumeLayout(false);
+            this.tabCamera.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabEmotion.ResumeLayout(false);
             this.tabSettings.ResumeLayout(false);
@@ -298,6 +384,13 @@
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel1;
         private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel2;
         private Syncfusion.Windows.Forms.Tools.ProgressBarAdv progressBarAdv1;
+        private System.Windows.Forms.TextBox textBox1;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel3;
+        private Syncfusion.Windows.Forms.Tools.AutoLabel autoLabel4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblTitle;
+        private Syncfusion.Windows.Forms.ButtonAdv buttonAdv2;
+        private Syncfusion.Windows.Forms.ButtonAdv buttonAdv1;
     }
 }
 

@@ -45,7 +45,7 @@ namespace winForm2
             this.GetInfo();
             myCamera.OnFrameArrived += MyCamera_OnFrameArrived;
             Timer timer = new Timer();
-            timer.Interval = 2000;
+            timer.Interval = 1000;
             timer.Tick += Timer_Tick;
             timer.Start();
         }
