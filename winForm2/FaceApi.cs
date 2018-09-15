@@ -21,7 +21,7 @@ namespace winForm2
         /// <summary>
         /// Subscription Key azure
         /// </summary>
-        private static String SubscriptionKey = "620abaad90014a9191ac4179392acbf8";
+        private static String SubscriptionKey = "";
 
         //FaceService Client
 
