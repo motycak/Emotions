@@ -36,7 +36,6 @@ namespace winForm2
             //FaceApi.DeleteFolderGroups();
             this.InitializeGrid();
             this.InitializeCamera();
-            this.InitializeProgress();
         }
 
 
@@ -99,6 +98,7 @@ namespace winForm2
             coreRecal.RecalcImage(_lastImage, actualPersons);
             game.ProcessEmotions(actualPersons.Data, _lastImage);
             SetProgressValue(game.LastEmotionValue);
+            RefreshGameEmotionText(game.ActualEmotion);
         }
 
 
@@ -107,40 +107,47 @@ namespace winForm2
 
         #region "Progressbar"
 
-        private void InitializeProgress()
-        {
-            var timer = new Timer();
-            timer.Interval = 50;
-            timer.Tick += OnProgresValueTimerTick;
-            timer.Start();
-        }
-
         private void SetProgressValue(int value)
         {
-            NewProgressValue = value;
+            ProgressValue = value;
         }
 
         /// <summary>
         /// Toto tu radsej zabalim ak by sme menili tento komponent
         /// </summary>
-        private int ProgressValue { get { return progressBarAdv1.Value; } set { progressBarAdv1.Value = value; } }
+        private int ProgressValue {
+            get {
+                return progressBarAdv1.Value;
+            }
+            set {
+                progressBarAdv1.Value = value;
+            }
+        }
 
-        private int NewProgressValue { get; set; }
-
-        private void OnProgresValueTimerTick(object sender, EventArgs e)
+        private void RefreshGameEmotionText(GamificationService.eEmotions emotion)
         {
-            int step = 5;
-            if(Math.Abs(NewProgressValue - ProgressValue) < step)
+            var str = GetGameEmotionText(emotion);
+            if (!lblTitle.Text.Equals(str))
             {
-                ProgressValue = NewProgressValue;
+                lblTitle.Text = str;
             }
-            else if(NewProgressValue > ProgressValue)
+        }
+
+        private string GetGameEmotionText(GamificationService.eEmotions emotion)
+        {
+            switch (emotion)
             {
-                ProgressValue += (int)step;
-            }
-            else
-            {
-                ProgressValue -= (int)step;
+                case GamificationService.eEmotions.Anger:
+                    return "Buď Nahnevaný !";
+                case GamificationService.eEmotions.Happines:
+                    return "Buď Šťastný !";
+                case GamificationService.eEmotions.Fear:
+                    return "Maj Strach !";
+                case GamificationService.eEmotions.Surprise:
+                    return "Buď prekvapený";
+                default:
+                    return "Game on!";
+
             }
         }
         #endregion
@@ -196,6 +203,7 @@ namespace winForm2
         private void btnPrint_Click(object sender, EventArgs e)
         {
             PrintingService.Print(game.PhotoStripList);
+            game.NewGame();
         }
     }
 }

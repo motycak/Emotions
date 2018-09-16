@@ -48,6 +48,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabEmotion = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabSettings = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.btnPrint = new Syncfusion.Windows.Forms.ButtonAdv();
             this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.cmbResolutions = new System.Windows.Forms.ComboBox();
             this.cmbCameras = new System.Windows.Forms.ComboBox();
-            this.btnPrint = new Syncfusion.Windows.Forms.ButtonAdv();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
             this.tabControlAdv1.SuspendLayout();
@@ -188,15 +188,15 @@
             // 
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Corbel", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTitle.Location = new System.Drawing.Point(96, 9);
+            this.lblTitle.Location = new System.Drawing.Point(11, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(300, 49);
+            this.lblTitle.Size = new System.Drawing.Size(480, 49);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "BUĎ ŠŤASTNÝ !";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // progressBarAdv1
             // 
@@ -216,13 +216,13 @@
             this.progressBarAdv1.ForegroundImage = null;
             this.progressBarAdv1.GradientEndColor = System.Drawing.Color.Lime;
             this.progressBarAdv1.GradientStartColor = System.Drawing.Color.Red;
-            this.progressBarAdv1.Location = new System.Drawing.Point(506, 46);
+            this.progressBarAdv1.Location = new System.Drawing.Point(506, 9);
             this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
         System.Drawing.Color.Empty};
             this.progressBarAdv1.Name = "progressBarAdv1";
             this.progressBarAdv1.ProgressOrientation = System.Windows.Forms.Orientation.Vertical;
             this.progressBarAdv1.SegmentWidth = 12;
-            this.progressBarAdv1.Size = new System.Drawing.Size(107, 324);
+            this.progressBarAdv1.Size = new System.Drawing.Size(107, 361);
             this.progressBarAdv1.TabIndex = 2;
             this.progressBarAdv1.Text = "progressBarAdv1";
             this.progressBarAdv1.ThemesEnabled = false;
@@ -235,9 +235,9 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 61);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(480, 353);
+            this.pictureBox1.Size = new System.Drawing.Size(480, 338);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -275,6 +275,17 @@
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Nastavenia";
             this.tabSettings.ThemesEnabled = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BeforeTouchSize = new System.Drawing.Size(62, 23);
+            this.btnPrint.IsBackStageButton = false;
+            this.btnPrint.Location = new System.Drawing.Point(109, 163);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(62, 23);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "Tlač !!!";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // autoLabel4
             // 
@@ -348,18 +359,6 @@
             this.cmbCameras.TabIndex = 0;
             this.cmbCameras.SelectedIndexChanged += new System.EventHandler(this.cmbCameras_SelectedIndexChanged);
             // 
-            // btnPrint
-            // 
-            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrint.BeforeTouchSize = new System.Drawing.Size(62, 23);
-            this.btnPrint.IsBackStageButton = false;
-            this.btnPrint.Location = new System.Drawing.Point(109, 163);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(62, 23);
-            this.btnPrint.TabIndex = 8;
-            this.btnPrint.Text = "Tlač !!!";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +376,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).EndInit();
             this.tabControlAdv1.ResumeLayout(false);
             this.tabCamera.ResumeLayout(false);
-            this.tabCamera.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabEmotion.ResumeLayout(false);
