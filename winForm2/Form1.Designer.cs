@@ -41,29 +41,29 @@
             this.gridGroupingControl1 = new Syncfusion.Windows.Forms.Grid.Grouping.GridGroupingControl();
             this.tabControlAdv1 = new Syncfusion.Windows.Forms.Tools.TabControlAdv();
             this.tabCamera = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.buttonAdv2 = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.buttonAdv1 = new Syncfusion.Windows.Forms.ButtonAdv();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabEmotion = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
             this.tabSettings = new Syncfusion.Windows.Forms.Tools.TabPageAdv();
+            this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel2 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.cmbResolutions = new System.Windows.Forms.ComboBox();
             this.cmbCameras = new System.Windows.Forms.ComboBox();
-            this.progressBarAdv1 = new Syncfusion.Windows.Forms.Tools.ProgressBarAdv();
-            this.autoLabel3 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.autoLabel4 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.buttonAdv1 = new Syncfusion.Windows.Forms.ButtonAdv();
-            this.buttonAdv2 = new Syncfusion.Windows.Forms.ButtonAdv();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
             this.tabControlAdv1.SuspendLayout();
             this.tabCamera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabEmotion.SuspendLayout();
             this.tabSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).BeginInit();
             this.SuspendLayout();
             // 
             // gridGroupingControl1
@@ -116,6 +116,8 @@
             gridColumnDescriptor8});
             this.gridGroupingControl1.TableDescriptor.TableOptions.ColumnHeaderRowHeight = 25;
             this.gridGroupingControl1.TableDescriptor.TableOptions.RecordRowHeight = 25;
+            this.gridGroupingControl1.TableOptions.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.gridGroupingControl1.TableOptions.SelectionTextColor = System.Drawing.SystemColors.HighlightText;
             this.gridGroupingControl1.Text = "gridGroupingControl1";
             this.gridGroupingControl1.UseRightToLeftCompatibleTextBox = true;
             this.gridGroupingControl1.VersionInfo = "15.2460.0.40";
@@ -159,6 +161,74 @@
             this.tabCamera.Text = "Kamera";
             this.tabCamera.ThemesEnabled = false;
             // 
+            // buttonAdv2
+            // 
+            this.buttonAdv2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdv2.BeforeTouchSize = new System.Drawing.Size(49, 23);
+            this.buttonAdv2.IsBackStageButton = false;
+            this.buttonAdv2.Location = new System.Drawing.Point(564, 376);
+            this.buttonAdv2.Name = "buttonAdv2";
+            this.buttonAdv2.Size = new System.Drawing.Size(49, 23);
+            this.buttonAdv2.TabIndex = 5;
+            this.buttonAdv2.Text = "Stop";
+            // 
+            // buttonAdv1
+            // 
+            this.buttonAdv1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdv1.BeforeTouchSize = new System.Drawing.Size(49, 23);
+            this.buttonAdv1.IsBackStageButton = false;
+            this.buttonAdv1.Location = new System.Drawing.Point(506, 376);
+            this.buttonAdv1.Name = "buttonAdv1";
+            this.buttonAdv1.Size = new System.Drawing.Size(49, 23);
+            this.buttonAdv1.TabIndex = 4;
+            this.buttonAdv1.Text = "Štart";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Corbel", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkCyan;
+            this.lblTitle.Location = new System.Drawing.Point(96, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(300, 49);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "BUĎ ŠŤASTNÝ !";
+            // 
+            // progressBarAdv1
+            // 
+            this.progressBarAdv1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarAdv1.BackGradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.progressBarAdv1.BackGradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
+            this.progressBarAdv1.BackMultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv1.BackSegments = false;
+            this.progressBarAdv1.BackTubeEndColor = System.Drawing.Color.White;
+            this.progressBarAdv1.BackTubeStartColor = System.Drawing.Color.LightGray;
+            this.progressBarAdv1.CustomText = null;
+            this.progressBarAdv1.CustomWaitingRender = false;
+            this.progressBarAdv1.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressBarAdv1.FontColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.progressBarAdv1.ForegroundImage = null;
+            this.progressBarAdv1.GradientEndColor = System.Drawing.Color.Lime;
+            this.progressBarAdv1.GradientStartColor = System.Drawing.Color.Red;
+            this.progressBarAdv1.Location = new System.Drawing.Point(506, 46);
+            this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Empty};
+            this.progressBarAdv1.Name = "progressBarAdv1";
+            this.progressBarAdv1.ProgressOrientation = System.Windows.Forms.Orientation.Vertical;
+            this.progressBarAdv1.SegmentWidth = 12;
+            this.progressBarAdv1.Size = new System.Drawing.Size(107, 324);
+            this.progressBarAdv1.TabIndex = 2;
+            this.progressBarAdv1.Text = "progressBarAdv1";
+            this.progressBarAdv1.ThemesEnabled = false;
+            this.progressBarAdv1.TubeEndColor = System.Drawing.Color.Black;
+            this.progressBarAdv1.TubeStartColor = System.Drawing.Color.Red;
+            this.progressBarAdv1.WaitingGradientWidth = 400;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -167,7 +237,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(11, 46);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(480, 353);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -203,6 +273,40 @@
             this.tabSettings.TabIndex = 3;
             this.tabSettings.Text = "Nastavenia";
             this.tabSettings.ThemesEnabled = false;
+            // 
+            // autoLabel4
+            // 
+            this.autoLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.autoLabel4.Location = new System.Drawing.Point(11, 140);
+            this.autoLabel4.Name = "autoLabel4";
+            this.autoLabel4.Size = new System.Drawing.Size(80, 15);
+            this.autoLabel4.TabIndex = 7;
+            this.autoLabel4.Text = "Úspešnosť %";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(109, 137);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(62, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 109);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(213, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // autoLabel3
+            // 
+            this.autoLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.autoLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.autoLabel3.Location = new System.Drawing.Point(11, 110);
+            this.autoLabel3.Name = "autoLabel3";
+            this.autoLabel3.Size = new System.Drawing.Size(74, 15);
+            this.autoLabel3.TabIndex = 4;
+            this.autoLabel3.Text = "FaceApi Key";
             // 
             // autoLabel2
             // 
@@ -242,108 +346,6 @@
             this.cmbCameras.TabIndex = 0;
             this.cmbCameras.SelectedIndexChanged += new System.EventHandler(this.cmbCameras_SelectedIndexChanged);
             // 
-            // progressBarAdv1
-            // 
-            this.progressBarAdv1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarAdv1.BackGradientEndColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.progressBarAdv1.BackGradientStartColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
-            this.progressBarAdv1.BackMultipleColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Empty};
-            this.progressBarAdv1.BackSegments = false;
-            this.progressBarAdv1.BackTubeEndColor = System.Drawing.Color.White;
-            this.progressBarAdv1.BackTubeStartColor = System.Drawing.Color.LightGray;
-            this.progressBarAdv1.CustomText = null;
-            this.progressBarAdv1.CustomWaitingRender = false;
-            this.progressBarAdv1.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressBarAdv1.FontColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.progressBarAdv1.ForegroundImage = null;
-            this.progressBarAdv1.GradientEndColor = System.Drawing.Color.Lime;
-            this.progressBarAdv1.GradientStartColor = System.Drawing.Color.Red;
-            this.progressBarAdv1.Location = new System.Drawing.Point(506, 46);
-            this.progressBarAdv1.MultipleColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Empty};
-            this.progressBarAdv1.Name = "progressBarAdv1";
-            this.progressBarAdv1.ProgressOrientation = System.Windows.Forms.Orientation.Vertical;
-            this.progressBarAdv1.SegmentWidth = 12;
-            this.progressBarAdv1.Size = new System.Drawing.Size(107, 324);
-            this.progressBarAdv1.TabIndex = 2;
-            this.progressBarAdv1.Text = "progressBarAdv1";
-            this.progressBarAdv1.ThemesEnabled = false;
-            this.progressBarAdv1.TubeEndColor = System.Drawing.Color.Black;
-            this.progressBarAdv1.TubeStartColor = System.Drawing.Color.Red;
-            this.progressBarAdv1.WaitingGradientWidth = 400;
-            // 
-            // autoLabel3
-            // 
-            this.autoLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autoLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.autoLabel3.Location = new System.Drawing.Point(11, 110);
-            this.autoLabel3.Name = "autoLabel3";
-            this.autoLabel3.Size = new System.Drawing.Size(74, 15);
-            this.autoLabel3.TabIndex = 4;
-            this.autoLabel3.Text = "FaceApi Key";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(109, 109);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(109, 137);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(62, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // autoLabel4
-            // 
-            this.autoLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.autoLabel4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.autoLabel4.Location = new System.Drawing.Point(11, 140);
-            this.autoLabel4.Name = "autoLabel4";
-            this.autoLabel4.Size = new System.Drawing.Size(80, 15);
-            this.autoLabel4.TabIndex = 7;
-            this.autoLabel4.Text = "Úspešnosť %";
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Corbel", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblTitle.Location = new System.Drawing.Point(96, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(300, 49);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "BUĎ ŠŤASTNÝ !";
-            // 
-            // buttonAdv1
-            // 
-            this.buttonAdv1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdv1.BeforeTouchSize = new System.Drawing.Size(49, 23);
-            this.buttonAdv1.IsBackStageButton = false;
-            this.buttonAdv1.Location = new System.Drawing.Point(506, 376);
-            this.buttonAdv1.Name = "buttonAdv1";
-            this.buttonAdv1.Size = new System.Drawing.Size(49, 23);
-            this.buttonAdv1.TabIndex = 4;
-            this.buttonAdv1.Text = "Štart";
-            // 
-            // buttonAdv2
-            // 
-            this.buttonAdv2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdv2.BeforeTouchSize = new System.Drawing.Size(49, 23);
-            this.buttonAdv2.IsBackStageButton = false;
-            this.buttonAdv2.Location = new System.Drawing.Point(564, 376);
-            this.buttonAdv2.Name = "buttonAdv2";
-            this.buttonAdv2.Size = new System.Drawing.Size(49, 23);
-            this.buttonAdv2.TabIndex = 5;
-            this.buttonAdv2.Text = "Stop";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,11 +364,11 @@
             this.tabControlAdv1.ResumeLayout(false);
             this.tabCamera.ResumeLayout(false);
             this.tabCamera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabEmotion.ResumeLayout(false);
             this.tabSettings.ResumeLayout(false);
             this.tabSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarAdv1)).EndInit();
             this.ResumeLayout(false);
 
         }

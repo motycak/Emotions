@@ -23,6 +23,8 @@ namespace winForm2
         CoreRecalc coreRecal = new CoreRecalc();
         int countImages = 0;
         Image _lastImage = null;
+        int _progressValue = 0;
+        int _oldProgressValue = 0;
 
         #endregion
 
@@ -34,7 +36,7 @@ namespace winForm2
             //FaceApi.DeleteFolderGroups();
             this.InitializeGrid();
             this.InitializeCamera();
-            progressBarAdv1.Value = 0;
+            this.InitializeProgress();
         }
 
 
@@ -51,6 +53,13 @@ namespace winForm2
             timer.Start();
         }
 
+        private void InitializeProgress()
+        {
+            var timer = new Timer();
+            timer.Interval = 50;
+            timer.Tick += OnProgresValueTimerTick;
+            timer.Start();
+        }
 
         private void GetInfo()
         {
@@ -96,10 +105,39 @@ namespace winForm2
         private void CreateImage()
         {
             coreRecal.RecalcImage(_lastImage, actualPersons);
-            if (actualPersons.Data.Count() >0)
-                progressBarAdv1.Value = (int)actualPersons.Data.First().Happiness;
+            if (actualPersons.Data.Any())
+            {
+                // ked ich bude viac na fotke tak nech vyberie najsilnejsiu emociu
+                SetProgressValue((int)actualPersons.Data.Max(p => p.Happiness));
+            }
+            else
+            {
+                SetProgressValue(0);
+            }
         }
 
+        private void SetProgressValue(int value)
+        {
+            _oldProgressValue = progressBarAdv1.Value;
+            _progressValue = value;
+        }
+
+        private void OnProgresValueTimerTick(object sender, EventArgs e)
+        {
+            int step = 5;
+            if(Math.Abs(_progressValue - progressBarAdv1.Value) < step)
+            {
+                progressBarAdv1.Value = _progressValue;
+            }
+            else if(_progressValue > progressBarAdv1.Value)
+            {
+                progressBarAdv1.Value += (int)step;
+            }
+            else
+            {
+                progressBarAdv1.Value -= (int)step;
+            }
+        }
 
         #endregion
 

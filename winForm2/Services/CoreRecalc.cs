@@ -73,10 +73,9 @@ namespace winForm2
             person.Neutral = this.GetRecalculateEmotion(emotion.Neutral, 1);
         }
 
-
         private decimal GetRecalculateEmotion(double emotion, int sumEmotions)
         {
-            return Math.Round(((decimal)emotion / sumEmotions) * 100, 4);
+            return Math.Round(((decimal)emotion / 1) * 100, 4);
         }
 
     }
