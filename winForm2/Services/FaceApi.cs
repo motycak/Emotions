@@ -54,7 +54,7 @@ namespace winForm2
                     var response = await ClientFace.DetectAsync(uri);
 
                 }
-                catch (Exception e)
+                catch 
                 {
                     break;
                 }

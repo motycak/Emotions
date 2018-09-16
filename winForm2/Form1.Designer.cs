@@ -56,6 +56,7 @@
             this.autoLabel1 = new Syncfusion.Windows.Forms.Tools.AutoLabel();
             this.cmbResolutions = new System.Windows.Forms.ComboBox();
             this.cmbCameras = new System.Windows.Forms.ComboBox();
+            this.btnPrint = new Syncfusion.Windows.Forms.ButtonAdv();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlAdv1)).BeginInit();
             this.tabControlAdv1.SuspendLayout();
@@ -256,6 +257,7 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.Controls.Add(this.btnPrint);
             this.tabSettings.Controls.Add(this.autoLabel4);
             this.tabSettings.Controls.Add(this.textBox2);
             this.tabSettings.Controls.Add(this.textBox1);
@@ -346,6 +348,18 @@
             this.cmbCameras.TabIndex = 0;
             this.cmbCameras.SelectedIndexChanged += new System.EventHandler(this.cmbCameras_SelectedIndexChanged);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.BeforeTouchSize = new System.Drawing.Size(62, 23);
+            this.btnPrint.IsBackStageButton = false;
+            this.btnPrint.Location = new System.Drawing.Point(109, 163);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(62, 23);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "Tlač !!!";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +407,7 @@
         private System.Windows.Forms.Label lblTitle;
         private Syncfusion.Windows.Forms.ButtonAdv buttonAdv2;
         private Syncfusion.Windows.Forms.ButtonAdv buttonAdv1;
+        private Syncfusion.Windows.Forms.ButtonAdv btnPrint;
     }
 }
 

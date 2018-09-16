@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emotions.Printing;
 
 namespace winForm2
 {
@@ -21,7 +22,6 @@ namespace winForm2
         BindigListData actualPersons = new BindigListData();
         Camera myCamera = new Camera();
         CoreRecalc coreRecal = new CoreRecalc();
-        int countImages = 0;
         Image _lastImage = null;
         int _progressValue = 0;
 
@@ -190,6 +190,11 @@ namespace winForm2
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             myCamera.Stop();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            PrintingService.Print(new PrintRepository());
         }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emotions", "winForm2\Emotions.csproj", "{7F93DA9B-227C-492B-B8D3-8660DE004989}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoStripPrinting", "PhotoStripPrinting\PhotoStripPrinting.csproj", "{79A08A7B-39F7-4216-83F6-7F417364B236}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7F93DA9B-227C-492B-B8D3-8660DE004989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F93DA9B-227C-492B-B8D3-8660DE004989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F93DA9B-227C-492B-B8D3-8660DE004989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A08A7B-39F7-4216-83F6-7F417364B236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A08A7B-39F7-4216-83F6-7F417364B236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A08A7B-39F7-4216-83F6-7F417364B236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A08A7B-39F7-4216-83F6-7F417364B236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
