@@ -24,7 +24,6 @@ namespace winForm2
         int countImages = 0;
         Image _lastImage = null;
         int _progressValue = 0;
-        int _oldProgressValue = 0;
 
         #endregion
 
@@ -50,14 +49,6 @@ namespace winForm2
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
-            timer.Start();
-        }
-
-        private void InitializeProgress()
-        {
-            var timer = new Timer();
-            timer.Interval = 50;
-            timer.Tick += OnProgresValueTimerTick;
             timer.Start();
         }
 
@@ -116,9 +107,22 @@ namespace winForm2
             }
         }
 
+
+        #endregion
+
+
+        #region "Progressbar"
+
+        private void InitializeProgress()
+        {
+            var timer = new Timer();
+            timer.Interval = 50;
+            timer.Tick += OnProgresValueTimerTick;
+            timer.Start();
+        }
+
         private void SetProgressValue(int value)
         {
-            _oldProgressValue = progressBarAdv1.Value;
             _progressValue = value;
         }
 
@@ -138,9 +142,7 @@ namespace winForm2
                 progressBarAdv1.Value -= (int)step;
             }
         }
-
         #endregion
-
 
 
         #region Grid
