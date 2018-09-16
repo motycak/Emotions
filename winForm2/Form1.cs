@@ -25,6 +25,7 @@ namespace winForm2
         CoreRecalc coreRecal = new CoreRecalc();
         Image _lastImage = null;
         GamificationService game = new GamificationService();
+        Timer TimerProgress = new Timer();
 
         #endregion
 
@@ -36,6 +37,15 @@ namespace winForm2
             //FaceApi.DeleteFolderGroups();
             this.InitializeGrid();
             this.InitializeCamera();
+            coreRecal.ImageProcessingFinished += ImageProcessingFinished;
+            StartProgressAnimation();
+        }
+
+        private void ImageProcessingFinished(object sender, IList<Person> e)
+        {
+            game.ProcessEmotions(e, (Image)sender);
+            SetProgressValue(game.LastEmotionValue);
+            RefreshGameEmotionText(game.ActualEmotion);
         }
 
 
@@ -72,6 +82,7 @@ namespace winForm2
         {
             _lastImage = e.GetFrame();
             this.pictureBox1.Image = _lastImage;
+            StartProgressAnimation();
         }
 
 
@@ -96,9 +107,6 @@ namespace winForm2
         private void CreateImage()
         {
             coreRecal.RecalcImage(_lastImage, actualPersons);
-            game.ProcessEmotions(actualPersons.Data, _lastImage);
-            SetProgressValue(game.LastEmotionValue);
-            RefreshGameEmotionText(game.ActualEmotion);
         }
 
 
@@ -107,9 +115,44 @@ namespace winForm2
 
         #region "Progressbar"
 
+        private int TargetProgressValue { get; set; } = 0;
+
         private void SetProgressValue(int value)
         {
-            ProgressValue = value;
+            if (value == 100)
+            {
+                // tuto to potrebujem hned spravit
+                ProgressValue = 100;
+            }
+            else
+            {
+                TargetProgressValue = value;
+            }
+        }
+
+        private void StartProgressAnimation()
+        {
+            TimerProgress.Tick += AnimateProgress;
+            TimerProgress.Interval = 100;
+            TimerProgress.Start();
+        }
+
+        private void AnimateProgress(object sender, EventArgs e)
+        {
+            int step = 5;
+            if (ProgressValue != TargetProgressValue) {
+                if (Math.Abs(TargetProgressValue - ProgressValue) < step) {
+                    ProgressValue = TargetProgressValue;
+                }
+                else if (TargetProgressValue > ProgressValue)
+                {
+                    ProgressValue += step;
+                }
+                else
+                {
+                    ProgressValue -= step;
+                }
+            }
         }
 
         /// <summary>
