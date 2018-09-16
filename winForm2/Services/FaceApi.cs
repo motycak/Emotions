@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -21,7 +22,7 @@ namespace winForm2
         /// <summary>
         /// Subscription Key azure
         /// </summary>
-        private static String SubscriptionKey = "";
+        private static String SubscriptionKey = "620abaad90014a9191ac4179392acbf8";
 
         //FaceService Client
 
@@ -90,7 +91,7 @@ namespace winForm2
 
 
 
-        public static async Task<List<Face>> MakeFaceRequest(string imageFilePath)
+        public static async Task<List<Face>> MakeFaceRequest(Image image)
         {
             var client = new HttpClient();
 
@@ -105,8 +106,7 @@ namespace winForm2
             HttpResponseMessage response;
             string responseContent;
 
-            // Request body. Try this sample with a locally stored JPEG image.
-            byte[] byteData = GetImageAsByteArray(imageFilePath);
+            byte[] byteData = (byte[])(new ImageConverter().ConvertTo(image, typeof(byte[])));
 
             using (var content = new ByteArrayContent(byteData))
             {

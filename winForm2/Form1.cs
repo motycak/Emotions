@@ -22,6 +22,7 @@ namespace winForm2
         Camera myCamera = new Camera();
         CoreRecalc coreRecal = new CoreRecalc();
         int countImages = 0;
+        Image _lastImage = null;
 
         #endregion
 
@@ -69,8 +70,8 @@ namespace winForm2
 
         private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
         {
-            Image img = e.GetFrame();
-            this.pictureBox1.Image = img;
+            _lastImage = e.GetFrame();
+            this.pictureBox1.Image = _lastImage;
         }
 
 
@@ -94,13 +95,7 @@ namespace winForm2
 
         private void CreateImage()
         {
-            string fileName = Application.StartupPath + @"\Images\" + "ImageAnalyze" + countImages;
-            myCamera.Capture(fileName);
-            countImages++;
-            string fileNameWithJpg = fileName + ".jpg";
-            Bitmap lastImage = (Bitmap)Image.FromFile(fileNameWithJpg, true);
-
-            coreRecal.RecalcImage(fileNameWithJpg, actualPersons, lastImage);
+            coreRecal.RecalcImage(_lastImage, actualPersons);
             if (actualPersons.Data.Count() >0)
                 progressBarAdv1.Value = (int)actualPersons.Data.First().Happiness;
         }

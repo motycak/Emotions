@@ -13,12 +13,12 @@ namespace winForm2
     class CoreRecalc
     {
 
-        public async void RecalcImage(String imageFilePath, BindigListData actualPersons, Image recalcImage)
+        public async void RecalcImage(Image image, BindigListData actualPersons)
         {
             // ! Face
-            Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(imageFilePath);
+            Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(image);
             List<Face> face = await faceEmotion;
-            this.RecalcFaces(face, actualPersons, recalcImage);
+            this.RecalcFaces(face, actualPersons, image);
         }
 
 
@@ -45,7 +45,7 @@ namespace winForm2
                                     new Rectangle(0, 0, target.Width, target.Height),
                                     cropRect, GraphicsUnit.Pixel);
                     }
-                    target.Save(Application.StartupPath + @"\FaceGroups\1\aaa.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    //target.Save(Application.StartupPath + @"\FaceGroups\1\aaa.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     
                     person = new Person();
                     person.FaceID = face.FaceId;
