@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using PhotoStripPrinting;
 
-namespace Emotions.Printing
+namespace Emotions.Gamification
 {
-    class PrintRepository : IPhotoStripListRepositary
+    class PhotoStripList : IPhotoStripListRepositary
     {
         private List<PhotoStrip> _list = new List<PhotoStrip>();
 
@@ -17,7 +17,7 @@ namespace Emotions.Printing
             return _list;
         }
 
-        protected PhotoStrip Last
+        public PhotoStrip Last
         {
             get
             {
@@ -25,18 +25,18 @@ namespace Emotions.Printing
             }
         }
 
-        protected void AddNew()
+        public void AddNew()
         {
             var ps = new PhotoStrip();
             _list.Add(ps);
         }
 
-        protected void Clear()
+        public void Clear()
         {
             _list.Clear();
         }
 
-        protected class PhotoStrip : IPhotoStrip
+        public class PhotoStrip : IPhotoStrip
         {
             public Image Photo2 { get; set; }
             public Image Photo3 { get; set; }

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emotions.Printing;
+using Emotions.Gamification;
 
 namespace winForm2
 {
@@ -23,6 +24,7 @@ namespace winForm2
         Camera myCamera = new Camera();
         CoreRecalc coreRecal = new CoreRecalc();
         Image _lastImage = null;
+        GamificationService game = new GamificationService();
 
         #endregion
 
@@ -95,15 +97,8 @@ namespace winForm2
         private void CreateImage()
         {
             coreRecal.RecalcImage(_lastImage, actualPersons);
-            if (actualPersons.Data.Any())
-            {
-                // ked ich bude viac na fotke tak nech vyberie najsilnejsiu emociu
-                SetProgressValue((int)actualPersons.Data.Max(p => p.Happiness));
-            }
-            else
-            {
-                SetProgressValue(0);
-            }
+            game.ProcessEmotions(actualPersons.Data, _lastImage);
+            SetProgressValue(game.LastEmotionValue);
         }
 
 
@@ -200,7 +195,7 @@ namespace winForm2
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            PrintingService.Print(new PrintRepository());
+            PrintingService.Print(game.PhotoStripList);
         }
     }
 }

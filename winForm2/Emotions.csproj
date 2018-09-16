@@ -121,8 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindigListData.cs" />
+    <Compile Include="Gamification\GamificationService.cs" />
     <Compile Include="Printing\PrintingService.cs" />
-    <Compile Include="Printing\PrintRepository.cs" />
+    <Compile Include="Gamification\PhotoStripList.cs" />
     <Compile Include="Services\CoreRecalc.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Services\FaceApi.cs" />
