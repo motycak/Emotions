@@ -23,7 +23,6 @@ namespace winForm2
         Camera myCamera = new Camera();
         CoreRecalc coreRecal = new CoreRecalc();
         Image _lastImage = null;
-        int _progressValue = 0;
 
         #endregion
 
@@ -123,23 +122,30 @@ namespace winForm2
 
         private void SetProgressValue(int value)
         {
-            _progressValue = value;
+            NewProgressValue = value;
         }
+
+        /// <summary>
+        /// Toto tu radsej zabalim ak by sme menili tento komponent
+        /// </summary>
+        private int ProgressValue { get { return progressBarAdv1.Value; } set { progressBarAdv1.Value = value; } }
+
+        private int NewProgressValue { get; set; }
 
         private void OnProgresValueTimerTick(object sender, EventArgs e)
         {
             int step = 5;
-            if(Math.Abs(_progressValue - progressBarAdv1.Value) < step)
+            if(Math.Abs(NewProgressValue - ProgressValue) < step)
             {
-                progressBarAdv1.Value = _progressValue;
+                ProgressValue = NewProgressValue;
             }
-            else if(_progressValue > progressBarAdv1.Value)
+            else if(NewProgressValue > ProgressValue)
             {
-                progressBarAdv1.Value += (int)step;
+                ProgressValue += (int)step;
             }
             else
             {
-                progressBarAdv1.Value -= (int)step;
+                ProgressValue -= (int)step;
             }
         }
         #endregion
