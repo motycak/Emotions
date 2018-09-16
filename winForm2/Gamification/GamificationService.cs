@@ -18,7 +18,7 @@ namespace Emotions.Gamification
 
         public PhotoStripList PhotoStripList { get; private set; } = new PhotoStripList();
 
-        public eEmotions ActualEmotion = eEmotions.None;
+        public eEmotions ActualEmotion = eEmotions.Neutral;
 
         public int LastEmotionValue { get; private set; }
 
@@ -32,10 +32,13 @@ namespace Emotions.Gamification
                     ActualEmotion = eEmotions.Anger;
                     break;
                 case eEmotions.Anger:
-                    ActualEmotion = eEmotions.Fear;
+                    ActualEmotion = eEmotions.Sadness;
                     break;
-                case eEmotions.Fear:
+                case eEmotions.Sadness:
                     ActualEmotion = eEmotions.Surprise;
+                    break;
+                case eEmotions.Surprise:
+                    ActualEmotion = eEmotions.Disgust;
                     break;
                 default:
                     NewRound();
@@ -68,6 +71,8 @@ namespace Emotions.Gamification
                     return person.Happiness;
                 case eEmotions.Neutral:
                     return person.Neutral;
+                case eEmotions.Sadness:
+                    return person.Sadness;
                 case eEmotions.Surprise:
                     return person.Surprise;
             }
@@ -78,17 +83,20 @@ namespace Emotions.Gamification
         {
             switch (ActualEmotion)
             {
-                case eEmotions.Anger:
-                    PhotoStripList.Last.Photo4 = image;
-                    break;
-                case eEmotions.Fear:
-                    PhotoStripList.Last.Photo2 = image;
-                    break;
                 case eEmotions.Happines:
                     PhotoStripList.Last.Photo1 = image;
                     break;
-                case eEmotions.Surprise:
+                case eEmotions.Anger:
+                    PhotoStripList.Last.Photo2 = image;
+                    break;
+                case eEmotions.Sadness:
                     PhotoStripList.Last.Photo3 = image;
+                    break;
+                case eEmotions.Surprise:
+                    PhotoStripList.Last.Photo4 = image;
+                    break;
+                case eEmotions.Disgust:
+                    PhotoStripList.Last.Photo5 = image;
                     break;
             }
         }
@@ -119,14 +127,14 @@ namespace Emotions.Gamification
 
         public enum eEmotions
         {
-            None = 0,
             Anger = 1,
             Contempt = 2,
             Disgust = 3,
             Fear = 4,
             Happines = 5,
-            Neutral = 6,
-            Surprise = 7
+            Neutral = 0,
+            Surprise = 6,
+            Sadness = 7
         }
     }
 }

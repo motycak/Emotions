@@ -75,7 +75,7 @@ namespace winForm2
 
         private decimal GetRecalculateEmotion(double emotion, int sumEmotions)
         {
-            return Math.Round(((decimal)emotion / 1) * 100, 4);
+            return Math.Min( Math.Round(((decimal)emotion / (decimal)0.9) * 100, 4), 100);
         }
 
     }

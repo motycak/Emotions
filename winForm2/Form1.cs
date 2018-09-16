@@ -138,13 +138,15 @@ namespace winForm2
             switch (emotion)
             {
                 case GamificationService.eEmotions.Anger:
-                    return "Buď Nahnevaný !";
+                    return "BUĎ NAHNEVANÝ !!!";
                 case GamificationService.eEmotions.Happines:
-                    return "Buď Šťastný !";
-                case GamificationService.eEmotions.Fear:
-                    return "Maj Strach !";
+                    return "BUĎ ŠŤASTNÝ !!!";
+                case GamificationService.eEmotions.Sadness:
+                    return "BUĎ SMUTNÝ !!!";
                 case GamificationService.eEmotions.Surprise:
-                    return "Buď prekvapený";
+                    return "BUĎ PREKVAPENÝ !!!";
+                case GamificationService.eEmotions.Disgust:
+                    return "BUĎ ZNECHUTENÝ !!!";
                 default:
                     return "Game on!";
 
