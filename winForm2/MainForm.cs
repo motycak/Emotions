@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Emotions
@@ -33,6 +34,8 @@ namespace Emotions
         Image _lastImage = null;
         GamificationService game = new GamificationService();
         Timer TimerProgress = new Timer();
+        Timer TimerEmotion = new Timer();
+        Boolean IsActiveEmotionGame = true;
 
         #endregion
 
@@ -40,7 +43,7 @@ namespace Emotions
         {
             game.ProcessEmotions(e, (Image)sender);
             SetProgressValue(game.LastEmotionValue);
-            RefreshGameEmotionText(game.ActualEmotion);
+            RefreshGameEmotionText();
         }
 
 
@@ -51,10 +54,10 @@ namespace Emotions
         {
             this.GetInfo();
             myCamera.OnFrameArrived += MyCamera_OnFrameArrived;
-            Timer timer = new Timer();
-            timer.Interval = 350;
-            timer.Tick += Timer_Tick;
-            timer.Start();
+
+            TimerEmotion.Interval = 400;
+            TimerEmotion.Tick += TimerEmotion_Tick;
+            StartTimerEmotion();
         }
 
         private void GetInfo()
@@ -80,9 +83,9 @@ namespace Emotions
             StartProgressAnimation();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private  void TimerEmotion_Tick(object sender, EventArgs e)
         {
-            CreateImage();
+             CreateImage();
         }
 
 
@@ -100,7 +103,7 @@ namespace Emotions
 
         private void CreateImage()
         {
-            if (!(_lastImage is null))
+            if (!(_lastImage is null) && IsActiveEmotionGame)
             {
                 // musim tu naklonovat obrazok lebo to ide do ineho vlakna
                 Image processImage = _lastImage.Clone() as Image;
@@ -170,34 +173,16 @@ namespace Emotions
             }
         }
 
-        private void RefreshGameEmotionText(GamificationService.eEmotions emotion)
+        private void RefreshGameEmotionText()
         {
-            var str = GetGameEmotionText(emotion);
+            var str = game.GetGameEmotionText();
             if (!lblTitle.Text.Equals(str))
             {
                 lblTitle.Text = str;
             }
         }
 
-        private string GetGameEmotionText(GamificationService.eEmotions emotion)
-        {
-            switch (emotion)
-            {
-                case GamificationService.eEmotions.Anger:
-                    return "BUĎ NAHNEVANÝ !!!";
-                case GamificationService.eEmotions.Happines:
-                    return "BUĎ ŠŤASTNÝ !!!";
-                case GamificationService.eEmotions.Sadness:
-                    return "BUĎ SMUTNÝ !!!";
-                case GamificationService.eEmotions.Surprise:
-                    return "BUĎ PREKVAPENÝ !!!";
-                case GamificationService.eEmotions.Disgust:
-                    return "BUĎ ZNECHUTENÝ !!!";
-                default:
-                    return "Game on!";
-
-            }
-        }
+        
         #endregion
 
 
@@ -227,32 +212,58 @@ namespace Emotions
 
 
 
-        //private void gridGroupingControl1_TableControlCellDrawn(object sender, Syncfusion.Windows.Forms.Grid.Grouping.GridTableControlDrawCellEventArgs e)
-        //{
-        //    if (actualPersons.Data.Count() != 0)
-        //    {
-        //        if (e.Inner.ColIndex == 0)
-        //        {
-        //            //ImageList images = new ImageList();
-        //            //images.ImageSize = new Size(100, 100);
-        //            //images.Images.Add(actualPersons.Data.First().Image);
-        //            //Rectangle rect = new Rectangle(0, 0, 100, 100);
-        //            //GridStaticCellRenderer.DrawImage(e.Inner.Graphics, images, 0, rect, false);
-        //            //e.Inner.Cancel = true;
-        //        }
-        //    }
-        //}
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             myCamera.Stop();
         }
+
+
+        private void acStart_Click(object sender, EventArgs e)
+        {
+            StartTimerEmotion();
+            game.NewGame();
+        }
+
+
+        private void acReset_Click(object sender, EventArgs e)
+        {
+            StartTimerEmotion();
+            game.ResetRound();
+        }
+
+        private void acStop_Click(object sender, EventArgs e)
+        {
+            StopTimerEmotion();
+            game.Stop();
+            RefreshGameEmotionText();
+            SetProgressValue(0);
+        }
+
 
         private void acPrint_Click(object sender, EventArgs e)
         {
             PrintingService.Print(game.PhotoStripList);
             game.NewGame();
         }
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void StartTimerEmotion()
+        {
+            IsActiveEmotionGame = true;
+            TimerEmotion.Start();
+        }
+
+        private void StopTimerEmotion()
+        {
+            IsActiveEmotionGame = false;
+            TimerEmotion.Stop();
+        }
+
 
     }
 }

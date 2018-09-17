@@ -42,6 +42,7 @@
             this.acPrint = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acFullscreen = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.acStop = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
@@ -59,9 +60,9 @@
             this.fluentDesignFormContainer1.Controls.Add(this.cmbResolutions);
             this.fluentDesignFormContainer1.Controls.Add(this.cmbCameras);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(40, 27);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 27);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(994, 611);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(774, 611);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // pictureBox
@@ -69,7 +70,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 96);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(816, 515);
+            this.pictureBox.Size = new System.Drawing.Size(596, 515);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
@@ -87,7 +88,7 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(816, 96);
+            this.lblTitle.Size = new System.Drawing.Size(596, 96);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "labelControl1";
             // 
@@ -95,7 +96,7 @@
             // 
             this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.progressBarControl1.EditValue = 50;
-            this.progressBarControl1.Location = new System.Drawing.Point(816, 0);
+            this.progressBarControl1.Location = new System.Drawing.Point(596, 0);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
             this.progressBarControl1.Properties.ShowTitle = true;
@@ -134,9 +135,8 @@
             this.accordionControl1.Location = new System.Drawing.Point(0, 27);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.NormalWidth = 260;
-            this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(40, 611);
+            this.accordionControl1.Size = new System.Drawing.Size(260, 611);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -144,7 +144,8 @@
             // 
             this.gameGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.acStart,
-            this.acReset});
+            this.acReset,
+            this.acStop});
             this.gameGroup.Expanded = true;
             this.gameGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("gameGroup.ImageOptions.Image")));
             this.gameGroup.Name = "gameGroup";
@@ -155,12 +156,14 @@
             this.acStart.Name = "acStart";
             this.acStart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acStart.Text = "New Round";
+            this.acStart.Click += new System.EventHandler(this.acStart_Click);
             // 
             // acReset
             // 
             this.acReset.Name = "acReset";
             this.acReset.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acReset.Text = "Reset Round";
+            this.acReset.Click += new System.EventHandler(this.acReset_Click);
             // 
             // acPrint
             // 
@@ -187,6 +190,13 @@
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1034, 27);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
+            // 
+            // acStop
+            // 
+            this.acStop.Name = "acStop";
+            this.acStop.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acStop.Text = "Stop";
+            this.acStop.Click += new System.EventHandler(this.acStop_Click);
             // 
             // MainForm
             // 
@@ -227,5 +237,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement acPrint;
         private System.Windows.Forms.PictureBox pictureBox;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acFullscreen;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acStop;
     }
 }

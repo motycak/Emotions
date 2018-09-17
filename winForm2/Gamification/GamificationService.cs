@@ -135,8 +135,14 @@ namespace Emotions.Gamification
             PhotoStripList.Last.Photo5 = null;
         }
 
+        public void Stop()
+        {
+            ActualEmotion = eEmotions.None;
+        }
+
         public enum eEmotions
         {
+            None = 0,
             Anger = 1,
             Contempt = 2,
             Disgust = 3,
@@ -145,6 +151,26 @@ namespace Emotions.Gamification
             Neutral = 0,
             Surprise = 6,
             Sadness = 7
+        }
+
+        public string GetGameEmotionText()
+        {
+            switch (ActualEmotion)
+            {
+                case GamificationService.eEmotions.Anger:
+                    return "BUĎ NAHNEVANÝ !!!";
+                case GamificationService.eEmotions.Happines:
+                    return "BUĎ ŠŤASTNÝ !!!";
+                case GamificationService.eEmotions.Sadness:
+                    return "BUĎ SMUTNÝ !!!";
+                case GamificationService.eEmotions.Surprise:
+                    return "BUĎ PREKVAPENÝ !!!";
+                case GamificationService.eEmotions.Disgust:
+                    return "BUĎ ZNECHUTENÝ !!!";
+                default:
+                    return "Game on!";
+
+            }
         }
     }
 }
