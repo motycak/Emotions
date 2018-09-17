@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Emotions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace winForm2
+namespace Emotions
 {
     static class Program
     {
@@ -16,7 +17,8 @@ namespace winForm2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("The Bezier", "Dragonfly");
+            Application.Run(new MainForm());
         }
     }
 }

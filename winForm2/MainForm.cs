@@ -1,6 +1,8 @@
 ﻿using DarrenLee.Media;
-using Syncfusion.Windows.Forms;
-using Syncfusion.Windows.Forms.Grid;
+using DevExpress.XtraBars;
+using Emotions.Gamification;
+using Emotions.Printing;
+using ImageProcessor.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,15 +10,22 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Emotions.Printing;
-using Emotions.Gamification;
 
-namespace winForm2
+namespace Emotions
 {
-    public partial class Form1 : MetroForm
+    public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        public MainForm()
+        {
+            InitializeComponent();
+            //FaceApi.DeleteGroups(100);
+            //FaceApi.DeleteFolderGroups();
+            this.InitializeGrid();
+            this.InitializeCamera();
+            coreRecal.ImageProcessingFinished += ImageProcessingFinished;
+            StartProgressAnimation();
+        }
 
         #region Variables
 
@@ -28,18 +37,6 @@ namespace winForm2
         Timer TimerProgress = new Timer();
 
         #endregion
-
-
-        public Form1()
-        {
-            InitializeComponent();
-            //FaceApi.DeleteGroups(100);
-            //FaceApi.DeleteFolderGroups();
-            this.InitializeGrid();
-            this.InitializeCamera();
-            coreRecal.ImageProcessingFinished += ImageProcessingFinished;
-            StartProgressAnimation();
-        }
 
         private void ImageProcessingFinished(object sender, IList<Person> e)
         {
@@ -68,10 +65,10 @@ namespace winForm2
             var cameraResolutions = myCamera.GetSupportedResolutions();
 
             foreach (var d in cameraDevices)
-                this.cmbCameras.Items.Add(d);
+                this.cmbCameras.Properties.Items.Add(d);
 
             foreach (var r in cameraResolutions)
-                this.cmbResolutions.Items.Add(r);
+                this.cmbResolutions.Properties.Items.Add(r);
 
             this.cmbCameras.SelectedIndex = 0;
             this.cmbResolutions.SelectedIndex = 0;
@@ -81,10 +78,9 @@ namespace winForm2
         private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
         {
             _lastImage = e.GetFrame();
-            this.pictureBox1.Image = _lastImage;
+            this.pictureBox.Image = _lastImage;
             StartProgressAnimation();
         }
-
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -106,9 +102,13 @@ namespace winForm2
 
         private void CreateImage()
         {
-            coreRecal.RecalcImage(_lastImage, actualPersons);
+            if (!(_lastImage is null))
+            {
+                // musim tu naklonovat obrazok lebo to ide do ineho vlakna
+                Image processImage = _lastImage.Clone() as Image;
+                coreRecal.RecalcImage(processImage, actualPersons);
+            }
         }
-
 
         #endregion
 
@@ -140,8 +140,10 @@ namespace winForm2
         private void AnimateProgress(object sender, EventArgs e)
         {
             int step = 5;
-            if (ProgressValue != TargetProgressValue) {
-                if (Math.Abs(TargetProgressValue - ProgressValue) < step) {
+            if (ProgressValue != TargetProgressValue)
+            {
+                if (Math.Abs(TargetProgressValue - ProgressValue) < step)
+                {
                     ProgressValue = TargetProgressValue;
                 }
                 else if (TargetProgressValue > ProgressValue)
@@ -158,12 +160,15 @@ namespace winForm2
         /// <summary>
         /// Toto tu radsej zabalim ak by sme menili tento komponent
         /// </summary>
-        private int ProgressValue {
-            get {
-                return progressBarAdv1.Value;
+        private int ProgressValue
+        {
+            get
+            {
+                return (int)progressBarControl1.EditValue;
             }
-            set {
-                progressBarAdv1.Value = value;
+            set
+            {
+                progressBarControl1.EditValue = value;
             }
         }
 
@@ -203,19 +208,19 @@ namespace winForm2
 
         private void InitializeGrid()
         {
-            this.gridGroupingControl1.TableDescriptor.Columns["Image"].Appearance.AnyRecordFieldCell.CellType = "Image";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Image"].Appearance.AnyRecordFieldCell.CellType = "Image";
 
-            this.gridGroupingControl1.TableDescriptor.Columns["Image"].Appearance.AnyRecordFieldCell.ImageSizeMode = GridImageSizeMode.AutoSize;
-            this.gridGroupingControl1.TableDescriptor.Columns["Anger"].HeaderText = "Nahnevaný";
-            this.gridGroupingControl1.TableDescriptor.Columns["Contempt"].HeaderText = "Opovrhnutie";
-            this.gridGroupingControl1.TableDescriptor.Columns["Disgust"].HeaderText = "Znechutenie";
-            this.gridGroupingControl1.TableDescriptor.Columns["Fear"].HeaderText = "Strach";
-            this.gridGroupingControl1.TableDescriptor.Columns["Happiness"].HeaderText = "Štastie";
-            this.gridGroupingControl1.TableDescriptor.Columns["Neutral"].HeaderText = "Neutral";
-            this.gridGroupingControl1.TableDescriptor.Columns["Sadness"].HeaderText = "Smútok";
-            this.gridGroupingControl1.TableDescriptor.Columns["Surprise"].HeaderText = "Prekvapenie";
-            //this.gridGroupingControl1.TableDescriptor.Columns["FaceID"]
-            this.gridGroupingControl1.DataSource = actualPersons.Data;
+            //this.gridGroupingControl1.TableDescriptor.Columns["Image"].Appearance.AnyRecordFieldCell.ImageSizeMode = GridImageSizeMode.AutoSize;
+            //this.gridGroupingControl1.TableDescriptor.Columns["Anger"].HeaderText = "Nahnevaný";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Contempt"].HeaderText = "Opovrhnutie";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Disgust"].HeaderText = "Znechutenie";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Fear"].HeaderText = "Strach";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Happiness"].HeaderText = "Štastie";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Neutral"].HeaderText = "Neutral";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Sadness"].HeaderText = "Smútok";
+            //this.gridGroupingControl1.TableDescriptor.Columns["Surprise"].HeaderText = "Prekvapenie";
+            ////this.gridGroupingControl1.TableDescriptor.Columns["FaceID"]
+            //this.gridGroupingControl1.DataSource = actualPersons.Data;
         }
 
 
@@ -224,31 +229,32 @@ namespace winForm2
 
 
 
-        private void gridGroupingControl1_TableControlCellDrawn(object sender, Syncfusion.Windows.Forms.Grid.Grouping.GridTableControlDrawCellEventArgs e)
-        {
-            if (actualPersons.Data.Count() != 0)
-            {
-                if (e.Inner.ColIndex == 0)
-                {
-                    //ImageList images = new ImageList();
-                    //images.ImageSize = new Size(100, 100);
-                    //images.Images.Add(actualPersons.Data.First().Image);
-                    //Rectangle rect = new Rectangle(0, 0, 100, 100);
-                    //GridStaticCellRenderer.DrawImage(e.Inner.Graphics, images, 0, rect, false);
-                    //e.Inner.Cancel = true;
-                }
-            }
-        }
+        //private void gridGroupingControl1_TableControlCellDrawn(object sender, Syncfusion.Windows.Forms.Grid.Grouping.GridTableControlDrawCellEventArgs e)
+        //{
+        //    if (actualPersons.Data.Count() != 0)
+        //    {
+        //        if (e.Inner.ColIndex == 0)
+        //        {
+        //            //ImageList images = new ImageList();
+        //            //images.ImageSize = new Size(100, 100);
+        //            //images.Images.Add(actualPersons.Data.First().Image);
+        //            //Rectangle rect = new Rectangle(0, 0, 100, 100);
+        //            //GridStaticCellRenderer.DrawImage(e.Inner.Graphics, images, 0, rect, false);
+        //            //e.Inner.Cancel = true;
+        //        }
+        //    }
+        //}
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             myCamera.Stop();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void acPrint_Click(object sender, EventArgs e)
         {
             PrintingService.Print(game.PhotoStripList);
             game.NewGame();
         }
+
     }
 }
