@@ -105,8 +105,7 @@ namespace winForm2
 
             HttpResponseMessage response;
             string responseContent;
-
-            byte[] byteData = (byte[])(new ImageConverter().ConvertTo(image, typeof(byte[])));
+            byte[] byteData = GetImageAsByteArray(image);
 
             using (var content = new ByteArrayContent(byteData))
             {
@@ -135,20 +134,15 @@ namespace winForm2
             return faces;
         }
 
-
-
-
-
-
-        public static byte[] GetImageAsByteArray(String imageFilePath)
+        public static byte[] GetImageAsByteArray(Image image)
         {
-            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-            BinaryReader binaryReader = new BinaryReader(fileStream);
-
-            return binaryReader.ReadBytes((int)fileStream.Length);
+            MemoryStream memoryStream = new MemoryStream();
+            new ImageProcessor.ImageFactory().Load(image)
+                                             .Format(new ImageProcessor.Imaging.Formats.JpegFormat() { Quality = 50 })
+                                             .Save(memoryStream);
+            BinaryReader binaryReader = new BinaryReader(memoryStream);
+            return binaryReader.ReadBytes((int)memoryStream.Length);
         }
-
-
 
         public static String CreateDirectory(int numberGroup)
         {
