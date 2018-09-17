@@ -37,8 +37,6 @@ namespace winForm2
             }
         }
 
-
-
         /// <summary>
         /// Vymaže všetky skupiny na Azure
         /// </summary>
@@ -62,10 +60,6 @@ namespace winForm2
             }
         }
 
-
-        
-
-
         public static async Task AddFaceToApi(Person person)
         {
             String personGroupId = person.GroupId + "";
@@ -88,8 +82,6 @@ namespace winForm2
 
             await Task.Delay(1000);
         }
-
-
 
         public static async Task<List<Face>> MakeFaceRequest(Image image)
         {
@@ -136,36 +128,13 @@ namespace winForm2
 
         public static byte[] GetImageAsByteArray(Image image)
         {
+            int quality = 60;
             MemoryStream memoryStream = new MemoryStream();
             new ImageProcessor.ImageFactory().Load(image)
-                                             .Format(new ImageProcessor.Imaging.Formats.JpegFormat() { Quality = 50 })
+                                             .Format(new ImageProcessor.Imaging.Formats.JpegFormat() { Quality = quality })
                                              .Save(memoryStream);
             BinaryReader binaryReader = new BinaryReader(memoryStream);
             return binaryReader.ReadBytes((int)memoryStream.Length);
         }
-
-        public static String CreateDirectory(int numberGroup)
-        {
-            String appPath = Application.StartupPath + @"\FaceGroups\" + numberGroup;
-            System.IO.Directory.CreateDirectory(appPath);
-            return appPath;
-        }
-
-
-        public static void DeleteFolderGroups()
-        {
-            String appPath = Application.StartupPath + @"\FaceGroups\";
-            System.IO.DirectoryInfo di = new DirectoryInfo(appPath);
-
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
-            foreach (DirectoryInfo dir in di.GetDirectories())
-            {
-                dir.Delete(true);
-            }
-        }
-
     }
 }
