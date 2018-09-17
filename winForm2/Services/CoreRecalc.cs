@@ -66,19 +66,19 @@ namespace Emotions
 
         private void SetEmotion(EmotionScores emotion, Person person)
         {
-            person.Anger = this.GetRecalculateEmotion(emotion.Anger, 1);
-            person.Contempt = this.GetRecalculateEmotion(emotion.Contempt, 1);
-            person.Disgust = this.GetRecalculateEmotion(emotion.Disgust, 1);
-            person.Fear = this.GetRecalculateEmotion(emotion.Fear, 1);
+            person.Anger = this.GetRecalculateEmotion(emotion.Anger, 0.4);
+            person.Contempt = this.GetRecalculateEmotion(emotion.Contempt, 0.5);
+            person.Disgust = this.GetRecalculateEmotion(emotion.Disgust, 0.4);
+            person.Fear = this.GetRecalculateEmotion(emotion.Fear, 0.3);
             person.Happiness = this.GetRecalculateEmotion(emotion.Happiness, 1);
-            person.Sadness = this.GetRecalculateEmotion(emotion.Sadness, 1);
-            person.Surprise = this.GetRecalculateEmotion(emotion.Surprise, 1);
+            person.Sadness = this.GetRecalculateEmotion(emotion.Sadness, 0.8);
+            person.Surprise = this.GetRecalculateEmotion(emotion.Surprise, 0.6);
             person.Neutral = this.GetRecalculateEmotion(emotion.Neutral, 1);
         }
 
-        private decimal GetRecalculateEmotion(double emotion, int sumEmotions)
+        private decimal GetRecalculateEmotion(double emotion, double coefficient)
         {
-            return Math.Min( Math.Round(((decimal)emotion / (decimal)0.9) * 100, 4), 100);
+            return Math.Min( Math.Round(((decimal)emotion / (decimal)coefficient) * 100, 4), 100);
         }
 
     }

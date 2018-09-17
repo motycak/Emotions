@@ -19,8 +19,6 @@ namespace Emotions
         public MainForm()
         {
             InitializeComponent();
-            //FaceApi.DeleteGroups(100);
-            //FaceApi.DeleteFolderGroups();
             this.InitializeGrid();
             this.InitializeCamera();
             coreRecal.ImageProcessingFinished += ImageProcessingFinished;
@@ -54,7 +52,7 @@ namespace Emotions
             this.GetInfo();
             myCamera.OnFrameArrived += MyCamera_OnFrameArrived;
             Timer timer = new Timer();
-            timer.Interval = 1000;
+            timer.Interval = 350;
             timer.Tick += Timer_Tick;
             timer.Start();
         }

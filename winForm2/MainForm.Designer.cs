@@ -59,9 +59,9 @@
             this.fluentDesignFormContainer1.Controls.Add(this.cmbResolutions);
             this.fluentDesignFormContainer1.Controls.Add(this.cmbCameras);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(44, 30);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(40, 27);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(990, 608);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(994, 611);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // pictureBox
@@ -69,7 +69,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(0, 96);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(812, 512);
+            this.pictureBox.Size = new System.Drawing.Size(816, 515);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 5;
             this.pictureBox.TabStop = false;
@@ -87,7 +87,7 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(812, 96);
+            this.lblTitle.Size = new System.Drawing.Size(816, 96);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "labelControl1";
             // 
@@ -95,12 +95,12 @@
             // 
             this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Right;
             this.progressBarControl1.EditValue = 50;
-            this.progressBarControl1.Location = new System.Drawing.Point(812, 0);
+            this.progressBarControl1.Location = new System.Drawing.Point(816, 0);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Properties.ProgressKind = DevExpress.XtraEditors.Controls.ProgressKind.Vertical;
             this.progressBarControl1.Properties.ShowTitle = true;
             this.progressBarControl1.Properties.TextOrientation = DevExpress.Utils.Drawing.TextOrientation.Horizontal;
-            this.progressBarControl1.Size = new System.Drawing.Size(178, 608);
+            this.progressBarControl1.Size = new System.Drawing.Size(178, 611);
             this.progressBarControl1.TabIndex = 4;
             // 
             // cmbResolutions
@@ -131,12 +131,12 @@
             this.acPrint,
             this.acFullscreen});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Single;
-            this.accordionControl1.Location = new System.Drawing.Point(0, 30);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 27);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.NormalWidth = 260;
             this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(44, 608);
+            this.accordionControl1.Size = new System.Drawing.Size(40, 611);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -184,7 +184,7 @@
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1034, 30);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1034, 27);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
