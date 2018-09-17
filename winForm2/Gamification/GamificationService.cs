@@ -119,10 +119,20 @@ namespace Emotions.Gamification
             NewRound();
         }
 
-        private void NewRound()
+        public void NewRound()
         {
             ActualEmotion = eEmotions.Happines;
             PhotoStripList.AddNew();
+        }
+
+        public void ResetRound()
+        {
+            ActualEmotion = eEmotions.Happines;
+            PhotoStripList.Last.Photo1 = null;
+            PhotoStripList.Last.Photo2 = null;
+            PhotoStripList.Last.Photo3 = null;
+            PhotoStripList.Last.Photo4 = null;
+            PhotoStripList.Last.Photo5 = null;
         }
 
         public enum eEmotions
