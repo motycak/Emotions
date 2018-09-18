@@ -49,7 +49,7 @@ namespace Emotions.Gamification
                     ActualEmotion = eEmotions.Disgust;
                     break;
                 default:
-                    NewRound();
+                    ActualEmotion = eEmotions.None;
                     break;
             }
         }
@@ -92,21 +92,28 @@ namespace Emotions.Gamification
             switch (ActualEmotion)
             {
                 case eEmotions.Happines:
-                    PhotoStripList.Last.Photo1 = image;
+                    PhotoStripList.Last.Photo1 = PreprocessImage(image);
                     break;
                 case eEmotions.Anger:
-                    PhotoStripList.Last.Photo2 = image;
+                    PhotoStripList.Last.Photo2 = PreprocessImage(image);
                     break;
                 case eEmotions.Sadness:
-                    PhotoStripList.Last.Photo3 = image;
+                    PhotoStripList.Last.Photo3 = PreprocessImage(image);
                     break;
                 case eEmotions.Surprise:
-                    PhotoStripList.Last.Photo4 = image;
+                    PhotoStripList.Last.Photo4 = PreprocessImage(image);
                     break;
                 case eEmotions.Disgust:
-                    PhotoStripList.Last.Photo5 = image;
+                    PhotoStripList.Last.Photo5 = PreprocessImage(image);
                     break;
             }
+        }
+
+        private Image PreprocessImage(Image image)
+        {
+            int size = Math.Min(image.Width, image.Height);
+            Rectangle cropRect = new Rectangle((image.Width - size) / 2, (image.Height - size) / 2, size, size);
+            return new ImageProcessor.ImageFactory().Load(image).Crop(cropRect).Image;
         }
 
         #endregion
@@ -189,7 +196,7 @@ namespace Emotions.Gamification
                 case GamificationService.eEmotions.Disgust:
                     return "BUĎ ZNECHUTENÝ !!!";
                 default:
-                    return "Game on!";
+                    return "PLAY EMOTIONS !!!";
 
             }
         }

@@ -11,6 +11,7 @@ using DarrenLee.Media;
 using Emotions.Gamification;
 using DevExpress.XtraEditors;
 using Emotions.Printing;
+using System.Threading;
 
 namespace Emotions.Components
 {
@@ -37,17 +38,19 @@ namespace Emotions.Components
         CoreRecalc coreRecal = new CoreRecalc();
         Image _lastImage = null;
         GamificationService game = new GamificationService();
-        Timer TimerProgress = new Timer();
-        Timer TimerEmotion = new Timer();
+        System.Windows.Forms.Timer TimerProgress = new System.Windows.Forms.Timer();
+        System.Windows.Forms.Timer TimerEmotion = new System.Windows.Forms.Timer();
         Boolean IsActiveEmotionGame = true;
-        
+
 
         #endregion
 
         private void ImageProcessingFinished(object sender, IList<Person> e)
         {
-            game.ProcessEmotions(e, (Image)sender);
+            var process = (sender as Image).Clone() as Image;
+            game.ProcessEmotions(e, process);
             RefreshGameEmotionText();
+            RefreshPictures();
         }
 
 
@@ -69,7 +72,7 @@ namespace Emotions.Components
             myCamera.ChangeCamera(0);
             myCamera.Start(0);
 
-            
+
 
             //this.cmbCameras.SelectedIndex = 0;
             //this.cmbResolutions.SelectedIndex = 0;
@@ -91,9 +94,9 @@ namespace Emotions.Components
 
         private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
         {
-            _lastImage = e.GetFrame();
-            this.pictureBox.Image = _lastImage;
-            StartProgressAnimation();
+            var img = e.GetFrame();
+            ShowCameraImage(img.Clone() as Image);
+            _lastImage = img;
         }
 
         private void TimerEmotion_Tick(object sender, EventArgs e)
@@ -101,6 +104,10 @@ namespace Emotions.Components
             CreateImage();
         }
 
+        private void ShowCameraImage(Image image)
+        {
+            this.pictureBox.Image = image;
+        }
 
         //private void cmbCameras_SelectedIndexChanged(object sender, EventArgs e)
         //{
@@ -139,7 +146,6 @@ namespace Emotions.Components
         private void AnimateProgress(object sender, EventArgs e)
         {
             AnimateProgressEmotion(prgAnger, game.Anger);
-            AnimateProgressEmotion(prgContempt, game.Contempt);
             AnimateProgressEmotion(prgDisgust, game.Disgust);
             AnimateProgressEmotion(prgHappines, game.Happiness);
             AnimateProgressEmotion(prgNeutral, game.Neutral);
@@ -149,11 +155,12 @@ namespace Emotions.Components
 
         private void AnimateProgressEmotion(ProgressBarControl prg, int target)
         {
-            int step = 5;
+            //prg.Position = target;
+            int step = Math.Abs((prg.Position - target) / 2);
             int actual = prg.Position;
             if (actual != target)
             {
-                if (Math.Abs(actual - target) < step)
+                if (Math.Abs(actual - target) < 5)
                 {
                     prg.Position = target;
                 }
@@ -178,9 +185,42 @@ namespace Emotions.Components
         }
 
 
+        private void RefreshPictures()
+        {
+            SetPicture(picHappiness, game.PhotoStripList.Last.Photo1);
+            SetPicture(picAnger, game.PhotoStripList.Last.Photo2);
+            SetPicture(picSadness, game.PhotoStripList.Last.Photo3);
+            SetPicture(picSurprise, game.PhotoStripList.Last.Photo4);
+            SetPicture(picDisgust, game.PhotoStripList.Last.Photo5);
+        }
+
+        private void ClearPictures()
+        {
+            ClearPicture(picHappiness);
+            ClearPicture(picAnger);
+            ClearPicture(picSadness);
+            ClearPicture(picSurprise);
+            ClearPicture(picDisgust);
+        }
+
+        private void SetPicture(PictureEdit pic, Image image)
+        {
+            if (!(image is null) && pic.Image is null) {
+                pic.Image = image;
+                pic.Height = 145;
+            }
+        }
+
+        private void ClearPicture(PictureEdit pic)
+        {
+            pic.Image = null;
+            pic.Height = 0;
+        }
+
+
         #endregion
 
-    
+
 
 
         public void CameraStop()
@@ -191,13 +231,15 @@ namespace Emotions.Components
 
         public void StartClick()
         {
+            ClearPictures();
             StartTimerEmotion();
-            game.NewGame();
+            game.NewRound();
         }
 
 
         public void ResetClick()
         {
+            ClearPictures();
             StartTimerEmotion();
             game.ResetRound();
         }
@@ -233,7 +275,5 @@ namespace Emotions.Components
             IsActiveEmotionGame = false;
             TimerEmotion.Stop();
         }
-
-
     }
 }

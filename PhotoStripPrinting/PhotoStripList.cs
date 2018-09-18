@@ -52,11 +52,8 @@ namespace PhotoStripPrinting
             private Image PreprocessImage(Image image)
             {
                 if (image is null) return null;
-               
-                var size = Math.Min(image.Height, image.Width);
-                var cropRect = new Rectangle((image.Width - size) / 2, (image.Height - size) / 2, size, size);
+              
                 return _imageFactory.Load(image)
-                                    .Crop(cropRect)
                                     .Rotate(270)
                                     .Image;
             }

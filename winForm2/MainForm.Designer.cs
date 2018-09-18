@@ -37,10 +37,10 @@
             this.acStart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acReset = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acStop = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.acSettings = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.toolsGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acPrint = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acFullscreen = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acSettings = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -123,14 +123,6 @@
             this.acStop.Text = "Stop";
             this.acStop.Click += new System.EventHandler(this.acStop_Click);
             // 
-            // acSettings
-            // 
-            this.acSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acSettings.ImageOptions.Image")));
-            this.acSettings.Name = "acSettings";
-            this.acSettings.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acSettings.Text = "Settings";
-            this.acSettings.Click += new System.EventHandler(this.acSettings_Click);
-            // 
             // toolsGroup
             // 
             this.toolsGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -156,6 +148,14 @@
             this.acFullscreen.Name = "acFullscreen";
             this.acFullscreen.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acFullscreen.Text = "Fullscreen";
+            // 
+            // acSettings
+            // 
+            this.acSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acSettings.ImageOptions.Image")));
+            this.acSettings.Name = "acSettings";
+            this.acSettings.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acSettings.Text = "Settings";
+            this.acSettings.Click += new System.EventHandler(this.acSettings_Click);
             // 
             // fluentDesignFormControl1
             // 
