@@ -26,6 +26,7 @@ namespace Emotions
         public MainForm()
         {
             InitializeComponent();
+            main1.Initialize();
             settings1.settingsInfoBindingSource.DataSource = dataSettings;
         }
         
