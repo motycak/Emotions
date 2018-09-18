@@ -258,11 +258,12 @@ namespace Emotions.Components
         public void PrintClick()
         {
             PrintingService.Print(game.PhotoStripList);
-            game.NewGame();
         }
 
-
-
+        public void ClearClick()
+        {
+            game.NewGame();
+        }
 
         /// <summary>
         /// 

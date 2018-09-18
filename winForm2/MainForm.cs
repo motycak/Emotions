@@ -84,5 +84,9 @@ namespace Emotions
             main1.Visible = true;
         }
 
+        private void acFullscreen_Click(object sender, EventArgs e)
+        {
+            main1.ClearClick();
+        }
     }
 }
