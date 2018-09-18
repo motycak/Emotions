@@ -35,7 +35,7 @@ namespace Emotions.Components
         #region Variables
 
         BindigListData actualPersons = new BindigListData();
-        Camera myCamera = new Camera();        
+        Camera myCamera = new Camera();
         Image _lastImage = null;
         GamificationService game = new GamificationService();
         Timer TimerProgress = new Timer();
@@ -71,7 +71,7 @@ namespace Emotions.Components
             myCamera.ChangeCamera(0);
             myCamera.Start(0);
 
-            
+
 
             //this.cmbCameras.SelectedIndex = 0;
             //this.cmbResolutions.SelectedIndex = 0;
@@ -98,9 +98,9 @@ namespace Emotions.Components
             StartProgressAnimation();
         }
 
-        private void TimerEmotion_Tick(object sender, EventArgs e)
+        private async void TimerEmotion_Tick(object sender, EventArgs e)
         {
-            CreateImage();
+            await CreateImage();
         }
 
 
@@ -116,13 +116,14 @@ namespace Emotions.Components
         //}
 
 
-        private void CreateImage()
+        private async Task CreateImage()
         {
             if (!(_lastImage is null) && IsActiveEmotionGame)
             {
                 // musim tu naklonovat obrazok lebo to ide do ineho vlakna
                 Image processImage = _lastImage.Clone() as Image;
-                coreRecal.RecalcImage(processImage, actualPersons);
+                string result = await coreRecal.RecalcImage(processImage, actualPersons);
+                
             }
         }
 
@@ -182,7 +183,7 @@ namespace Emotions.Components
 
         #endregion
 
-    
+
 
 
         public void CameraStop()

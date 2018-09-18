@@ -22,14 +22,22 @@ namespace Emotions
 
         public event EventHandler<IList<Person>> ImageProcessingFinished;
 
-        public async void RecalcImage(Image image, BindigListData actualPersons)
+        public async Task<string> RecalcImage(Image image, BindigListData actualPersons)
         {
             // ! Face
-            Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(image, DataSettings.FaceApiKey);
-            List<Face> face = await faceEmotion;
-            this.RecalcFaces(face, actualPersons, image);
-            // dam von vediet ze obrazok sa spracoval
-            ImageProcessingFinished.Invoke(image,actualPersons.Data);
+            try
+            {
+                Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(image, DataSettings.FaceApiKey);
+                List<Face> face = await faceEmotion;
+                this.RecalcFaces(face, actualPersons, image);
+                // dam von vediet ze obrazok sa spracoval
+                ImageProcessingFinished.Invoke(image, actualPersons.Data);
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         private void RecalcFaces(List<Face> faces, BindigListData actualPersons, Image recalcImage)
