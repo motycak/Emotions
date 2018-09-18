@@ -44,7 +44,20 @@ namespace Emotions
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
+        }        
 
+    }
+
+
+    public class DescriptionCamera
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+
+        public DescriptionCamera(string id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

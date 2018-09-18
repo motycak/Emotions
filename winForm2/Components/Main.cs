@@ -69,28 +69,16 @@ namespace Emotions.Components
             StartTimerEmotion();
         }
 
+
         private void GetInfo()
         {
             myCamera.ChangeCamera(0);
             myCamera.Start(0);
-
-            
-
-            //this.cmbCameras.SelectedIndex = 0;
-            //this.cmbResolutions.SelectedIndex = 0;
         }
 
-
-        private void SetSettingsInfo()
+        public Camera GetCamera()
         {
-            //var cameraDevices = myCamera.GetCameraSources();
-            //var cameraResolutions = myCamera.GetSupportedResolutions();
-
-            //foreach (var d in cameraDevices)
-            //    this.cmbCameras.Properties.Items.Add(d);
-
-            //foreach (var r in cameraResolutions)
-            //    this.cmbResolutions.Properties.Items.Add(r);
+            return myCamera;
         }
 
 
@@ -109,18 +97,7 @@ namespace Emotions.Components
         private void ShowCameraImage(Image image)
         {
             this.pictureBox.Image = image;
-        }
-
-        //private void cmbCameras_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    myCamera.ChangeCamera(this.cmbCameras.SelectedIndex);
-        //}
-
-
-        //private void cmbResolutions_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    myCamera.Start(cmbResolutions.SelectedIndex);
-        //}
+        }        
 
 
         private async Task CreateImage()

@@ -28,7 +28,7 @@ namespace Emotions
             InitializeComponent();
             settings1.settingsInfoBindingSource.DataSource = dataSettings;
             main1.Initialize(dataSettings);
-            settings1.Initialize(dataSettings);
+            settings1.Initialize(dataSettings, main1.GetCamera());
         }
         
 

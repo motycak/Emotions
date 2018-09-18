@@ -29,36 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbCameras = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbResolutions = new DevExpress.XtraEditors.ComboBoxEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.settingsInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            this.settingsInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCameras.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbResolutions.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxEdit1
+            // cmbCameras
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(88, 22);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbCameras.Location = new System.Drawing.Point(88, 22);
+            this.cmbCameras.Name = "cmbCameras";
+            this.cmbCameras.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(243, 20);
-            this.comboBoxEdit1.TabIndex = 0;
+            this.cmbCameras.Size = new System.Drawing.Size(243, 20);
+            this.cmbCameras.TabIndex = 0;
+            this.cmbCameras.EditValueChanged += new System.EventHandler(this.cmbCameras_EditValueChanged);
             // 
-            // comboBoxEdit2
+            // cmbResolutions
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(88, 48);
-            this.comboBoxEdit2.Name = "comboBoxEdit2";
-            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbResolutions.Location = new System.Drawing.Point(88, 48);
+            this.cmbResolutions.Name = "cmbResolutions";
+            this.cmbResolutions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit2.Size = new System.Drawing.Size(243, 20);
-            this.comboBoxEdit2.TabIndex = 1;
+            this.cmbResolutions.Size = new System.Drawing.Size(243, 20);
+            this.cmbResolutions.TabIndex = 1;
+            this.cmbResolutions.EditValueChanged += new System.EventHandler(this.cmbResolutions_EditValueChanged);
             // 
             // textEdit1
             // 
@@ -68,10 +70,6 @@
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(244, 20);
             this.textEdit1.TabIndex = 2;
-            // 
-            // settingsInfoBindingSource
-            // 
-            this.settingsInfoBindingSource.DataSource = typeof(Emotions.SettingsInfo);
             // 
             // label1
             // 
@@ -87,18 +85,22 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.label2.Text = "Resolutions";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "label3";
+            this.label3.Text = "Camera";
+            // 
+            // settingsInfoBindingSource
+            // 
+            this.settingsInfoBindingSource.DataSource = typeof(Emotions.SettingsInfo);
             // 
             // Settings
             // 
@@ -108,12 +110,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textEdit1);
-            this.Controls.Add(this.comboBoxEdit2);
-            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.cmbResolutions);
+            this.Controls.Add(this.cmbCameras);
             this.Name = "Settings";
             this.Size = new System.Drawing.Size(543, 307);
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbCameras.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbResolutions.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -123,8 +125,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbCameras;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbResolutions;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         public System.Windows.Forms.BindingSource settingsInfoBindingSource;
         private System.Windows.Forms.Label label1;
