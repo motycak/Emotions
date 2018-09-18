@@ -1,33 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace winForm2
+namespace Emotions
 {
-    public class Data : INotifyPropertyChanged
+    public class SettingsInfo : INotifyPropertyChanged
     {
 
-        public Data(int number)
+        public SettingsInfo()
         {
-            this.paNumber = number;
         }
 
 
-        private int paNumber;
 
 
-        public int Number   
+        private string paFaceApiKey;
+
+        public string FaceApiKey
         {
             get
             {
-                return this.paNumber;
+                return this.paFaceApiKey;
             }
             set
             {
-                this.paNumber = value;
-                RaisePropertyChanged("Number");
+                this.paFaceApiKey = value;
+                RaisePropertyChanged("FaceApiKey");
             }
         }
 
@@ -43,6 +44,4 @@ namespace winForm2
         }
 
     }
-
-
 }
