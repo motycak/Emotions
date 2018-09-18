@@ -32,27 +32,27 @@ namespace Emotions
         }
         
 
-        private void acStart_Click(object sender, EventArgs e)
+        private void AcStart_Click(object sender, EventArgs e)
         {
             main1.StartClick();
             ShowGame();
         }
 
 
-        private void acReset_Click(object sender, EventArgs e)
+        private void AcReset_Click(object sender, EventArgs e)
         {
             main1.ResetClick();
             ShowGame();
         }
 
-        private void acStop_Click(object sender, EventArgs e)
+        private void AcStop_Click(object sender, EventArgs e)
         {
             main1.StopClick();
             ShowGame();
         }
 
 
-        private void acPrint_Click(object sender, EventArgs e)
+        private void AcPrint_Click(object sender, EventArgs e)
         {
             main1.PrintClick();
             ShowGame();
@@ -63,7 +63,7 @@ namespace Emotions
             main1.CameraStop();
         }
 
-        private void acSettings_Click(object sender, EventArgs e)
+        private void AcSettings_Click(object sender, EventArgs e)
         {
             ShowSettings();
         }
@@ -84,9 +84,14 @@ namespace Emotions
             main1.Visible = true;
         }
 
-        private void acFullscreen_Click(object sender, EventArgs e)
+        private void AcFullscreen_Click(object sender, EventArgs e)
         {
             main1.ClearClick();
+        }
+
+        private void GameGroup_Click(object sender, EventArgs e)
+        {
+            ShowGame();
         }
     }
 }

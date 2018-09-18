@@ -36,11 +36,11 @@
             this.gameGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acStart = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acReset = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.acStop = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.toolsGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acPrint = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acFullscreen = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acSettings = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acStop = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -52,9 +52,9 @@
             this.fluentDesignFormContainer1.Controls.Add(this.main1);
             this.fluentDesignFormContainer1.Controls.Add(this.settings1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(44, 30);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 30);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(990, 608);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(774, 608);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // main1
@@ -62,7 +62,7 @@
             this.main1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main1.Location = new System.Drawing.Point(0, 0);
             this.main1.Name = "main1";
-            this.main1.Size = new System.Drawing.Size(990, 608);
+            this.main1.Size = new System.Drawing.Size(774, 608);
             this.main1.TabIndex = 0;
             // 
             // settings1
@@ -70,7 +70,7 @@
             this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settings1.Location = new System.Drawing.Point(0, 0);
             this.settings1.Name = "settings1";
-            this.settings1.Size = new System.Drawing.Size(990, 608);
+            this.settings1.Size = new System.Drawing.Size(774, 608);
             this.settings1.TabIndex = 1;
             // 
             // accordionControl1
@@ -83,9 +83,8 @@
             this.accordionControl1.Location = new System.Drawing.Point(0, 30);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.NormalWidth = 260;
-            this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(44, 608);
+            this.accordionControl1.Size = new System.Drawing.Size(260, 608);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -98,6 +97,7 @@
             this.gameGroup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("gameGroup.ImageOptions.Image")));
             this.gameGroup.Name = "gameGroup";
             this.gameGroup.Text = "Game";
+            this.gameGroup.Click += new System.EventHandler(this.GameGroup_Click);
             // 
             // acStart
             // 
@@ -105,7 +105,7 @@
             this.acStart.Name = "acStart";
             this.acStart.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acStart.Text = "New Round";
-            this.acStart.Click += new System.EventHandler(this.acStart_Click);
+            this.acStart.Click += new System.EventHandler(this.AcStart_Click);
             // 
             // acReset
             // 
@@ -113,15 +113,7 @@
             this.acReset.Name = "acReset";
             this.acReset.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acReset.Text = "Restart Round";
-            this.acReset.Click += new System.EventHandler(this.acReset_Click);
-            // 
-            // acStop
-            // 
-            this.acStop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acStop.ImageOptions.Image")));
-            this.acStop.Name = "acStop";
-            this.acStop.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.acStop.Text = "Stop";
-            this.acStop.Click += new System.EventHandler(this.acStop_Click);
+            this.acReset.Click += new System.EventHandler(this.AcReset_Click);
             // 
             // toolsGroup
             // 
@@ -140,7 +132,7 @@
             this.acPrint.Name = "acPrint";
             this.acPrint.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acPrint.Text = "Print";
-            this.acPrint.Click += new System.EventHandler(this.acPrint_Click);
+            this.acPrint.Click += new System.EventHandler(this.AcPrint_Click);
             // 
             // acFullscreen
             // 
@@ -148,7 +140,7 @@
             this.acFullscreen.Name = "acFullscreen";
             this.acFullscreen.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acFullscreen.Text = "Clear";
-            this.acFullscreen.Click += new System.EventHandler(this.acFullscreen_Click);
+            this.acFullscreen.Click += new System.EventHandler(this.AcFullscreen_Click);
             // 
             // acSettings
             // 
@@ -156,7 +148,15 @@
             this.acSettings.Name = "acSettings";
             this.acSettings.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acSettings.Text = "Settings";
-            this.acSettings.Click += new System.EventHandler(this.acSettings_Click);
+            this.acSettings.Click += new System.EventHandler(this.AcSettings_Click);
+            // 
+            // acStop
+            // 
+            this.acStop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("acStop.ImageOptions.Image")));
+            this.acStop.Name = "acStop";
+            this.acStop.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acStop.Text = "Stop";
+            this.acStop.Click += new System.EventHandler(this.AcStop_Click);
             // 
             // fluentDesignFormControl1
             // 

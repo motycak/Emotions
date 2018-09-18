@@ -11,7 +11,6 @@ using DarrenLee.Media;
 using Emotions.Gamification;
 using DevExpress.XtraEditors;
 using Emotions.Printing;
-using System.Threading;
 
 namespace Emotions.Components
 {
@@ -39,8 +38,8 @@ namespace Emotions.Components
         Camera myCamera = new Camera();
         Image _lastImage = null;
         GamificationService game = new GamificationService();
-        System.Windows.Forms.Timer TimerProgress = new System.Windows.Forms.Timer();
-        System.Windows.Forms.Timer TimerEmotion = new System.Windows.Forms.Timer();
+        Timer TimerAnimation = new Timer();
+        Timer TimerEmotion = new Timer();
         Boolean IsActiveEmotionGame = true;
         SettingsInfo DataSettings;
         CoreRecalc coreRecal;
@@ -85,7 +84,6 @@ namespace Emotions.Components
         private void MyCamera_OnFrameArrived(object source, FrameArrivedEventArgs e)
         {
             var img = e.GetFrame();
-            ShowCameraImage(img.Clone() as Image);
             _lastImage = img;
         }
 
@@ -94,9 +92,17 @@ namespace Emotions.Components
             await CreateImage();
         }
 
-        private void ShowCameraImage(Image image)
+        private void UpdateCameraImage()
         {
-            this.pictureBox.Image = image;
+            if (!(_lastImage is null))
+            {
+                var pic = pictureEdit1;
+                var image = _lastImage.Clone() as Image;
+                var zoom = Math.Max(100 * pic.Width / image.Width, 100 * pic.Height / image.Height);
+
+                pic.Properties.ZoomPercent = zoom;
+                pic.Image = image;
+            }
         }        
 
 
@@ -118,13 +124,14 @@ namespace Emotions.Components
 
         private void StartProgressAnimation()
         {
-            TimerProgress.Tick += AnimateProgress;
-            TimerProgress.Interval = 100;
-            TimerProgress.Start();
+            TimerAnimation.Tick += Animate;
+            TimerAnimation.Interval = 50;
+            TimerAnimation.Start();
         }
 
-        private void AnimateProgress(object sender, EventArgs e)
+        private void Animate(object sender, EventArgs e)
         {
+            UpdateCameraImage();
             AnimateProgressEmotion(prgAnger, game.Anger);
             AnimateProgressEmotion(prgDisgust, game.Disgust);
             AnimateProgressEmotion(prgHappines, game.Happiness);

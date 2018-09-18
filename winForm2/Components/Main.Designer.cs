@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.prgNeutral = new DevExpress.XtraEditors.ProgressBarControl();
             this.lblNeutral = new DevExpress.XtraEditors.LabelControl();
@@ -48,7 +47,7 @@
             this.prgHappines = new DevExpress.XtraEditors.ProgressBarControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prgNeutral.Properties)).BeginInit();
@@ -62,17 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.prgAnger.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHappiness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prgHappines.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox.Location = new System.Drawing.Point(0, 120);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(654, 517);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 6;
-            this.pictureBox.TabStop = false;
             // 
             // panelControl1
             // 
@@ -317,16 +307,25 @@
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "PLAY EMOTIONS !!!";
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 120);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ReadOnly = true;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(654, 517);
+            this.pictureEdit1.TabIndex = 9;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelControl1);
             this.Name = "Main";
             this.Size = new System.Drawing.Size(911, 637);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prgNeutral.Properties)).EndInit();
@@ -340,13 +339,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.prgAnger.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHappiness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prgHappines.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.ProgressBarControl prgNeutral;
         private DevExpress.XtraEditors.LabelControl lblNeutral;
@@ -366,5 +364,6 @@
         private DevExpress.XtraEditors.PictureEdit picSadness;
         private DevExpress.XtraEditors.PictureEdit picAnger;
         private DevExpress.XtraEditors.PictureEdit picHappiness;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

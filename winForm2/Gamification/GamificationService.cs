@@ -17,7 +17,7 @@ namespace Emotions.Gamification
 
         public PhotoStripList PhotoStripList { get; private set; } = new PhotoStripList();
 
-        public eEmotions ActualEmotion = eEmotions.Neutral;
+        public EnumEmotions ActualEmotion = EnumEmotions.Neutral;
 
         public int LastEmotionValue { get; private set; }
 
@@ -36,25 +36,25 @@ namespace Emotions.Gamification
         {
             switch (ActualEmotion)
             {
-                case eEmotions.Happines:
-                    ActualEmotion = eEmotions.Anger;
+                case EnumEmotions.Happines:
+                    ActualEmotion = EnumEmotions.Anger;
                     break;
-                case eEmotions.Anger:
-                    ActualEmotion = eEmotions.Sadness;
+                case EnumEmotions.Anger:
+                    ActualEmotion = EnumEmotions.Sadness;
                     break;
-                case eEmotions.Sadness:
-                    ActualEmotion = eEmotions.Surprise;
+                case EnumEmotions.Sadness:
+                    ActualEmotion = EnumEmotions.Surprise;
                     break;
-                case eEmotions.Surprise:
-                    ActualEmotion = eEmotions.Disgust;
+                case EnumEmotions.Surprise:
+                    ActualEmotion = EnumEmotions.Disgust;
                     break;
                 default:
-                    ActualEmotion = eEmotions.None;
+                    ActualEmotion = EnumEmotions.None;
                     break;
             }
         }
 
-        private int GetMaxActualEmotion(IList<Person> data, eEmotions emotions)
+        private int GetMaxActualEmotion(IList<Person> data, EnumEmotions emotions)
         {
             if (data.Any())
             {
@@ -63,25 +63,25 @@ namespace Emotions.Gamification
             return 0;
         }
 
-        private decimal GetPersonActualEmotion(Person person, eEmotions emotions)
+        private decimal GetPersonActualEmotion(Person person, EnumEmotions emotions)
         {
             switch (emotions)
             {
-                case eEmotions.Anger:
+                case EnumEmotions.Anger:
                     return person.Anger;
-                case eEmotions.Contempt:
+                case EnumEmotions.Contempt:
                     return person.Contempt;
-                case eEmotions.Disgust:
+                case EnumEmotions.Disgust:
                     return person.Disgust;
-                case eEmotions.Fear:
+                case EnumEmotions.Fear:
                     return person.Fear;
-                case eEmotions.Happines:
+                case EnumEmotions.Happines:
                     return person.Happiness;
-                case eEmotions.Neutral:
+                case EnumEmotions.Neutral:
                     return person.Neutral;
-                case eEmotions.Sadness:
+                case EnumEmotions.Sadness:
                     return person.Sadness;
-                case eEmotions.Surprise:
+                case EnumEmotions.Surprise:
                     return person.Surprise;
             }
             return 0;
@@ -91,19 +91,19 @@ namespace Emotions.Gamification
         {
             switch (ActualEmotion)
             {
-                case eEmotions.Happines:
+                case EnumEmotions.Happines:
                     PhotoStripList.Last.Photo1 = PreprocessImage(image);
                     break;
-                case eEmotions.Anger:
+                case EnumEmotions.Anger:
                     PhotoStripList.Last.Photo2 = PreprocessImage(image);
                     break;
-                case eEmotions.Sadness:
+                case EnumEmotions.Sadness:
                     PhotoStripList.Last.Photo3 = PreprocessImage(image);
                     break;
-                case eEmotions.Surprise:
+                case EnumEmotions.Surprise:
                     PhotoStripList.Last.Photo4 = PreprocessImage(image);
                     break;
-                case eEmotions.Disgust:
+                case EnumEmotions.Disgust:
                     PhotoStripList.Last.Photo5 = PreprocessImage(image);
                     break;
             }
@@ -131,14 +131,14 @@ namespace Emotions.Gamification
         private void SetMaxEmotionValues(IList<Person> data)
         {
             LastEmotionValue = GetMaxActualEmotion(data, ActualEmotion);
-            Anger       = GetMaxActualEmotion(data, eEmotions.Anger);
-            Contempt     = GetMaxActualEmotion(data, eEmotions.Contempt);
-            Disgust      = GetMaxActualEmotion(data, eEmotions.Disgust);
-            Fear         = GetMaxActualEmotion(data, eEmotions.Fear);
-            Happiness    = GetMaxActualEmotion(data, eEmotions.Happines);
-            Neutral      = GetMaxActualEmotion(data, eEmotions.Neutral);
-            Surprise     = GetMaxActualEmotion(data, eEmotions.Surprise);
-            Sadness = GetMaxActualEmotion(data, eEmotions.Sadness);
+            Anger       = GetMaxActualEmotion(data, EnumEmotions.Anger);
+            Contempt     = GetMaxActualEmotion(data, EnumEmotions.Contempt);
+            Disgust      = GetMaxActualEmotion(data, EnumEmotions.Disgust);
+            Fear         = GetMaxActualEmotion(data, EnumEmotions.Fear);
+            Happiness    = GetMaxActualEmotion(data, EnumEmotions.Happines);
+            Neutral      = GetMaxActualEmotion(data, EnumEmotions.Neutral);
+            Surprise     = GetMaxActualEmotion(data, EnumEmotions.Surprise);
+            Sadness = GetMaxActualEmotion(data, EnumEmotions.Sadness);
         }
 
         public void NewGame()
@@ -149,13 +149,13 @@ namespace Emotions.Gamification
 
         public void NewRound()
         {
-            ActualEmotion = eEmotions.Happines;
+            ActualEmotion = EnumEmotions.Happines;
             PhotoStripList.AddNew();
         }
 
         public void ResetRound()
         {
-            ActualEmotion = eEmotions.Happines;
+            ActualEmotion = EnumEmotions.Happines;
             PhotoStripList.Last.Photo1 = null;
             PhotoStripList.Last.Photo2 = null;
             PhotoStripList.Last.Photo3 = null;
@@ -165,10 +165,10 @@ namespace Emotions.Gamification
 
         public void Stop()
         {
-            ActualEmotion = eEmotions.None;
+            ActualEmotion = EnumEmotions.None;
         }
 
-        public enum eEmotions
+        public enum EnumEmotions
         {
             None = 0,
             Anger = 1,
@@ -185,15 +185,15 @@ namespace Emotions.Gamification
         {
             switch (ActualEmotion)
             {
-                case GamificationService.eEmotions.Anger:
+                case GamificationService.EnumEmotions.Anger:
                     return "BUĎ NAHNEVANÝ !!!";
-                case GamificationService.eEmotions.Happines:
+                case GamificationService.EnumEmotions.Happines:
                     return "BUĎ ŠŤASTNÝ !!!";
-                case GamificationService.eEmotions.Sadness:
+                case GamificationService.EnumEmotions.Sadness:
                     return "BUĎ SMUTNÝ !!!";
-                case GamificationService.eEmotions.Surprise:
+                case GamificationService.EnumEmotions.Surprise:
                     return "BUĎ PREKVAPENÝ !!!";
-                case GamificationService.eEmotions.Disgust:
+                case GamificationService.EnumEmotions.Disgust:
                     return "BUĎ ZNECHUTENÝ !!!";
                 default:
                     return "PLAY EMOTIONS !!!";
