@@ -22,25 +22,27 @@ namespace Emotions.Components
         }
 
 
-        public void Initialize()
+        public void Initialize(SettingsInfo dataSettings)
         {
             this.InitializeCamera();
+            coreRecal = new CoreRecalc();
             coreRecal.ImageProcessingFinished += ImageProcessingFinished;
             StartProgressAnimation();
+            DataSettings = dataSettings;
         }
 
 
         #region Variables
 
         BindigListData actualPersons = new BindigListData();
-        Camera myCamera = new Camera();
-        CoreRecalc coreRecal = new CoreRecalc();
+        Camera myCamera = new Camera();        
         Image _lastImage = null;
         GamificationService game = new GamificationService();
         Timer TimerProgress = new Timer();
         Timer TimerEmotion = new Timer();
         Boolean IsActiveEmotionGame = true;
-        
+        SettingsInfo DataSettings;
+        CoreRecalc coreRecal;
 
         #endregion
 
