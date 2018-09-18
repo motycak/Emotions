@@ -55,14 +55,14 @@ namespace Emotions
 
                 if (person == null)
                 {
-                    Rectangle cropRect = new Rectangle(face.FaceRectangle.Left - 7, face.FaceRectangle.Top - 7, face.FaceRectangle.Width + 14, face.FaceRectangle.Height + 14);
-                    Bitmap target = new Bitmap(face.FaceRectangle.Width, face.FaceRectangle.Height);
-                    using (Graphics g = Graphics.FromImage(target))
-                    {
-                        g.DrawImage(recalcImage,
-                                    new Rectangle(0, 0, target.Width, target.Height),
-                                    cropRect, GraphicsUnit.Pixel);
-                    }
+                    //Rectangle cropRect = new Rectangle(face.FaceRectangle.Left - 7, face.FaceRectangle.Top - 7, face.FaceRectangle.Width + 14, face.FaceRectangle.Height + 14);
+                    //Bitmap target = new Bitmap(face.FaceRectangle.Width, face.FaceRectangle.Height);
+                    //using (Graphics g = Graphics.FromImage(target))
+                    //{
+                    //    g.DrawImage(recalcImage,
+                    //                new Rectangle(0, 0, target.Width, target.Height),
+                    //                cropRect, GraphicsUnit.Pixel);
+                    //}
                     //target.Save(Application.StartupPath + @"\FaceGroups\1\aaa.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                     
                     person = new Person();
@@ -70,7 +70,7 @@ namespace Emotions
                     person.GroupId = 1;
                     actualPersons.AddPerson(person);
 
-                    person.Image = target;
+                    //person.Image = target;
                 }
 
 
