@@ -123,7 +123,7 @@ namespace Emotions.Components
                 // musim tu naklonovat obrazok lebo to ide do ineho vlakna
                 Image processImage = _lastImage.Clone() as Image;
                 string result = await coreRecal.RecalcImage(processImage, actualPersons);
-                
+                // ked pushnes formular, tak to vypysem do nejakeho labla v pravom panely, aby sme vedeli co sa deje...
             }
         }
 
