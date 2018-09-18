@@ -66,6 +66,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.prgNeutral);
             this.panelControl1.Controls.Add(this.lblNeutral);
             this.panelControl1.Controls.Add(this.picDisgust);
