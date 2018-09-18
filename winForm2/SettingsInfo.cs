@@ -14,7 +14,10 @@ namespace Emotions
         {
         }
 
-
+        public SettingsInfo(string faceApiKey)
+        {
+            FaceApiKey = faceApiKey;
+        }
 
 
         private string paFaceApiKey;

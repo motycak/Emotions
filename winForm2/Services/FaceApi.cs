@@ -22,7 +22,7 @@ namespace Emotions
         ///// <summary>
         ///// Subscription Key azure
         ///// </summary>
-        //private static String SubscriptionKey = "620abaad90014a9191ac4179392acbf8";
+        //private static String SubscriptionKey = "";
 
         ////FaceService Client
 
@@ -83,7 +83,7 @@ namespace Emotions
         //    await Task.Delay(1000);
         //}
 
-        public static async Task<List<Face>> MakeFaceRequest(Image image)
+        public static async Task<List<Face>> MakeFaceRequest(Image image, string subscriptionKey)
         {
             var client = new HttpClient();
 

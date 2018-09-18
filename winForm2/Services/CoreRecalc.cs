@@ -13,12 +13,19 @@ namespace Emotions
     class CoreRecalc
     {
 
+        public CoreRecalc(SettingsInfo dataSettings)
+        {
+            DataSettings = dataSettings;
+        }
+
+        SettingsInfo DataSettings;
+
         public event EventHandler<IList<Person>> ImageProcessingFinished;
 
         public async void RecalcImage(Image image, BindigListData actualPersons)
         {
             // ! Face
-            Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(image);
+            Task<List<Face>> faceEmotion = FaceApi.MakeFaceRequest(image, DataSettings.FaceApiKey);
             List<Face> face = await faceEmotion;
             this.RecalcFaces(face, actualPersons, image);
             // dam von vediet ze obrazok sa spracoval

@@ -25,7 +25,7 @@ namespace Emotions.Components
         public void Initialize(SettingsInfo dataSettings)
         {
             this.InitializeCamera();
-            coreRecal = new CoreRecalc();
+            coreRecal = new CoreRecalc(dataSettings);
             coreRecal.ImageProcessingFinished += ImageProcessingFinished;
             StartProgressAnimation();
             DataSettings = dataSettings;
