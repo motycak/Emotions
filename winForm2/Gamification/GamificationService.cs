@@ -22,6 +22,15 @@ namespace Emotions.Gamification
 
         public int LastEmotionValue { get; private set; }
 
+        public int Anger  { get; private set; }
+        public int Contempt { get; private set; }
+        public int Disgust  { get; private set; }
+        public int Fear  { get; private set; }
+        public int Happiness { get; private set; }
+        public int Neutral  { get; private set; }
+        public int Surprise { get; private set; }
+        public int Sadness   { get; private set; }
+
         #region "Private"
 
         public void NextEmotion()
@@ -46,18 +55,18 @@ namespace Emotions.Gamification
             }
         }
 
-        private int GetMaxActualEmotion(IList<Person> data)
+        private int GetMaxActualEmotion(IList<Person> data, eEmotions emotions)
         {
             if (data.Any())
             {
-                return (int)Math.Ceiling(data.Max(p => GetPersonActualEmotion(p)));
+                return (int)Math.Ceiling(data.Max(p => GetPersonActualEmotion(p,emotions)));
             }
             return 0;
         }
 
-        private decimal GetPersonActualEmotion(Person person)
+        private decimal GetPersonActualEmotion(Person person, eEmotions emotions)
         {
-            switch (ActualEmotion)
+            switch (emotions)
             {
                 case eEmotions.Anger:
                     return person.Anger;
@@ -105,12 +114,25 @@ namespace Emotions.Gamification
 
         public void ProcessEmotions(IList<Person> data, Image image)
         {
-            LastEmotionValue = GetMaxActualEmotion(data);
-            if(LastEmotionValue == 100)
+            SetMaxEmotionValues(data);
+            if (LastEmotionValue == 100)
             {
                 SetEmotionPhoto(image);
                 NextEmotion();
             }
+        }
+
+        private void SetMaxEmotionValues(IList<Person> data)
+        {
+            LastEmotionValue = GetMaxActualEmotion(data, ActualEmotion);
+            Anger       = GetMaxActualEmotion(data, eEmotions.Anger);
+            Contempt     = GetMaxActualEmotion(data, eEmotions.Contempt);
+            Disgust      = GetMaxActualEmotion(data, eEmotions.Disgust);
+            Fear         = GetMaxActualEmotion(data, eEmotions.Fear);
+            Happiness    = GetMaxActualEmotion(data, eEmotions.Happines);
+            Neutral      = GetMaxActualEmotion(data, eEmotions.Neutral);
+            Surprise     = GetMaxActualEmotion(data, eEmotions.Surprise);
+            Sadness = GetMaxActualEmotion(data, eEmotions.Sadness);
         }
 
         public void NewGame()

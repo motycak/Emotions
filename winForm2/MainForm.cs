@@ -1,5 +1,6 @@
 ﻿using DarrenLee.Media;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 using Emotions.Gamification;
 using Emotions.Printing;
 using ImageProcessor.Imaging;
@@ -42,7 +43,6 @@ namespace Emotions
         private void ImageProcessingFinished(object sender, IList<Person> e)
         {
             game.ProcessEmotions(e, (Image)sender);
-            SetProgressValue(game.LastEmotionValue);
             RefreshGameEmotionText();
         }
 
@@ -116,21 +116,6 @@ namespace Emotions
 
         #region "Progressbar"
 
-        private int TargetProgressValue { get; set; } = 0;
-
-        private void SetProgressValue(int value)
-        {
-            if (value == 100)
-            {
-                // tuto to potrebujem hned spravit
-                ProgressValue = 100;
-            }
-            else
-            {
-                TargetProgressValue = value;
-            }
-        }
-
         private void StartProgressAnimation()
         {
             TimerProgress.Tick += AnimateProgress;
@@ -140,36 +125,33 @@ namespace Emotions
 
         private void AnimateProgress(object sender, EventArgs e)
         {
+            AnimateProgressEmotion(prgAnger, game.Anger);
+            AnimateProgressEmotion(prgContempt, game.Contempt);
+            AnimateProgressEmotion(prgDisgust, game.Disgust);
+            AnimateProgressEmotion(prgHappines, game.Happiness);
+            AnimateProgressEmotion(prgNeutral, game.Neutral);
+            AnimateProgressEmotion(prgSadness, game.Sadness);
+            AnimateProgressEmotion(prgSurprise, game.Surprise);
+        }
+
+        private void AnimateProgressEmotion(ProgressBarControl prg, int target)
+        {
             int step = 5;
-            if (ProgressValue != TargetProgressValue)
+            int actual = prg.Position;
+            if(actual != target)
             {
-                if (Math.Abs(TargetProgressValue - ProgressValue) < step)
+                if (Math.Abs(actual - target) < step)
                 {
-                    ProgressValue = TargetProgressValue;
+                    prg.Position = target;
                 }
-                else if (TargetProgressValue > ProgressValue)
+                else if (actual < target)
                 {
-                    ProgressValue += step;
+                    prg.Position += step;
                 }
                 else
                 {
-                    ProgressValue -= step;
+                    prg.Position -= step;
                 }
-            }
-        }
-
-        /// <summary>
-        /// Toto tu radsej zabalim ak by sme menili tento komponent
-        /// </summary>
-        private int ProgressValue
-        {
-            get
-            {
-                return (int)progressBarControl1.EditValue;
-            }
-            set
-            {
-                progressBarControl1.EditValue = value;
             }
         }
 
@@ -236,7 +218,6 @@ namespace Emotions
             StopTimerEmotion();
             game.Stop();
             RefreshGameEmotionText();
-            SetProgressValue(0);
         }
 
 
