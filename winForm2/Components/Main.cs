@@ -23,11 +23,13 @@ namespace Emotions.Components
         }
 
 
-        public void Initialize()
+        public void Initialize(SettingsInfo dataSettings)
         {
             this.InitializeCamera();
+            coreRecal = new CoreRecalc(dataSettings);
             coreRecal.ImageProcessingFinished += ImageProcessingFinished;
             StartProgressAnimation();
+            DataSettings = dataSettings;
         }
 
 
@@ -35,13 +37,13 @@ namespace Emotions.Components
 
         BindigListData actualPersons = new BindigListData();
         Camera myCamera = new Camera();
-        CoreRecalc coreRecal = new CoreRecalc();
         Image _lastImage = null;
         GamificationService game = new GamificationService();
         System.Windows.Forms.Timer TimerProgress = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer TimerEmotion = new System.Windows.Forms.Timer();
         Boolean IsActiveEmotionGame = true;
-
+        SettingsInfo DataSettings;
+        CoreRecalc coreRecal;
 
         #endregion
 
@@ -72,7 +74,7 @@ namespace Emotions.Components
             myCamera.ChangeCamera(0);
             myCamera.Start(0);
 
-
+            
 
             //this.cmbCameras.SelectedIndex = 0;
             //this.cmbResolutions.SelectedIndex = 0;
@@ -99,9 +101,9 @@ namespace Emotions.Components
             _lastImage = img;
         }
 
-        private void TimerEmotion_Tick(object sender, EventArgs e)
+        private async void TimerEmotion_Tick(object sender, EventArgs e)
         {
-            CreateImage();
+            await CreateImage();
         }
 
         private void ShowCameraImage(Image image)
@@ -121,13 +123,14 @@ namespace Emotions.Components
         //}
 
 
-        private void CreateImage()
+        private async Task CreateImage()
         {
             if (!(_lastImage is null) && IsActiveEmotionGame)
             {
                 // musim tu naklonovat obrazok lebo to ide do ineho vlakna
                 Image processImage = _lastImage.Clone() as Image;
-                coreRecal.RecalcImage(processImage, actualPersons);
+                string result = await coreRecal.RecalcImage(processImage, actualPersons);
+                // ked pushnes formular, tak to vypysem do nejakeho labla v pravom panely, aby sme vedeli co sa deje...
             }
         }
 
@@ -220,7 +223,7 @@ namespace Emotions.Components
 
         #endregion
 
-
+    
 
 
         public void CameraStop()

@@ -20,14 +20,15 @@ namespace Emotions
     public partial class MainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
 
-        SettingsInfo dataSettings = new SettingsInfo();
+        SettingsInfo dataSettings = new SettingsInfo(Properties.Resources.FaceApiKey);
 
 
         public MainForm()
         {
             InitializeComponent();
-            main1.Initialize();
             settings1.settingsInfoBindingSource.DataSource = dataSettings;
+            main1.Initialize(dataSettings);
+            settings1.Initialize(dataSettings);
         }
         
 

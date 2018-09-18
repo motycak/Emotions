@@ -19,76 +19,76 @@ namespace Emotions
     class FaceApi
     {
 
-        /// <summary>
-        /// Subscription Key azure
-        /// </summary>
-        private static String SubscriptionKey = "620abaad90014a9191ac4179392acbf8";
+        ///// <summary>
+        ///// Subscription Key azure
+        ///// </summary>
+        //private static String SubscriptionKey = "";
 
-        //FaceService Client
+        ////FaceService Client
 
-        private static FaceServiceClient clientface;
-        public static FaceServiceClient ClientFace
-        {
-            get
-            {
-                if (clientface == null)
-                    clientface = new FaceServiceClient(SubscriptionKey);
-                return clientface;
-            }
-        }
+        //private static FaceServiceClient clientface;
+        //public static FaceServiceClient ClientFace
+        //{
+        //    get
+        //    {
+        //        if (clientface == null)
+        //            clientface = new FaceServiceClient(SubscriptionKey);
+        //        return clientface;
+        //    }
+        //}
 
-        /// <summary>
-        /// Vymaže všetky skupiny na Azure
-        /// </summary>
-        public static async void DeleteGroups(int countGroup)
-        {
-            for (int i = 0; i < countGroup; i++)
-            {
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                var uri = $"https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups/{i}"; // + queryString;
-                try
-                {
-                    var response = await ClientFace.DetectAsync(uri);
+        ///// <summary>
+        ///// Vymaže všetky skupiny na Azure
+        ///// </summary>
+        //public static async void DeleteGroups(int countGroup)
+        //{
+        //    for (int i = 0; i < countGroup; i++)
+        //    {
+        //        var client = new HttpClient();
+        //        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+        //        var uri = $"https://westus.api.cognitive.microsoft.com/face/v1.0/persongroups/{i}"; // + queryString;
+        //        try
+        //        {
+        //            var response = await ClientFace.DetectAsync(uri);
 
-                }
-                catch 
-                {
-                    break;
-                }
+        //        }
+        //        catch 
+        //        {
+        //            break;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        public static async Task AddFaceToApi(Person person)
-        {
-            String personGroupId = person.GroupId + "";
+        //public static async Task AddFaceToApi(Person person)
+        //{
+        //    String personGroupId = person.GroupId + "";
 
-            String groupImages = Application.StartupPath + @"\FaceGroups\" + personGroupId;
+        //    String groupImages = Application.StartupPath + @"\FaceGroups\" + personGroupId;
 
-            Task tCreate = ClientFace.CreatePersonGroupAsync(person.GroupId+"", personGroupId);
-            tCreate.Wait();
+        //    Task tCreate = ClientFace.CreatePersonGroupAsync(person.GroupId+"", personGroupId);
+        //    tCreate.Wait();
 
-            foreach (string imagePath in Directory.GetFiles(groupImages, "*.jpg"))
-            {
-                using (Stream s = File.OpenRead(imagePath))
-                {
-                    await ClientFace.AddPersonFaceAsync(personGroupId, person.FaceID, s);
-                }
-            }
+        //    foreach (string imagePath in Directory.GetFiles(groupImages, "*.jpg"))
+        //    {
+        //        using (Stream s = File.OpenRead(imagePath))
+        //        {
+        //            await ClientFace.AddPersonFaceAsync(personGroupId, person.FaceID, s);
+        //        }
+        //    }
 
-            var t = ClientFace.TrainPersonGroupAsync(personGroupId);
-            //t.Wait();
+        //    var t = ClientFace.TrainPersonGroupAsync(personGroupId);
+        //    //t.Wait();
 
-            await Task.Delay(1000);
-        }
+        //    await Task.Delay(1000);
+        //}
 
-        public static async Task<List<Face>> MakeFaceRequest(Image image)
+        public static async Task<List<Face>> MakeFaceRequest(Image image, string subscriptionKey)
         {
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // Request parameters and URI string.
             string queryString = "returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,emotion,gender";

@@ -16,5 +16,12 @@ namespace Emotions.Components
         {
             InitializeComponent();
         }
+
+
+
+        public void Initialize(SettingsInfo dataSettings)
+        {
+            settingsInfoBindingSource.DataSource = dataSettings;
+        }
     }
 }

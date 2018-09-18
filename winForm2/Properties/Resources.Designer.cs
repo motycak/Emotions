@@ -59,5 +59,14 @@ namespace Emotions.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 620abaad90014a9191ac4179392acbf8.
+        /// </summary>
+        internal static string FaceApiKey {
+            get {
+                return ResourceManager.GetString("FaceApiKey", resourceCulture);
+            }
+        }
     }
 }
