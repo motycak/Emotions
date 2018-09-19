@@ -29,6 +29,7 @@ namespace Emotions.Components
             coreRecal.ImageProcessingFinished += ImageProcessingFinished;
             StartProgressAnimation();
             DataSettings = dataSettings;
+            photoStripListBindingSource.DataSource = game.PhotoStripList;
         }
 
 

@@ -152,6 +152,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Emotions.Gamification.PhotoStripList.datasource" />
     <None Include="Properties\DataSources\SettingsInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

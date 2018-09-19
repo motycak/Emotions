@@ -48,6 +48,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.txtCount = new System.Windows.Forms.Label();
+            this.photoStripListBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prgNeutral.Properties)).BeginInit();
@@ -62,11 +64,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHappiness.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prgHappines.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoStripListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.txtCount);
             this.panelControl1.Controls.Add(this.prgNeutral);
             this.panelControl1.Controls.Add(this.lblNeutral);
             this.panelControl1.Controls.Add(this.picDisgust);
@@ -94,9 +98,9 @@
             // prgNeutral
             // 
             this.prgNeutral.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgNeutral.Location = new System.Drawing.Point(22, 282);
+            this.prgNeutral.Location = new System.Drawing.Point(20, 280);
             this.prgNeutral.Name = "prgNeutral";
-            this.prgNeutral.Size = new System.Drawing.Size(213, 18);
+            this.prgNeutral.Size = new System.Drawing.Size(217, 18);
             this.prgNeutral.TabIndex = 13;
             // 
             // lblNeutral
@@ -105,17 +109,17 @@
             this.lblNeutral.Appearance.Options.UseFont = true;
             this.lblNeutral.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblNeutral.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblNeutral.Location = new System.Drawing.Point(22, 252);
+            this.lblNeutral.Location = new System.Drawing.Point(20, 250);
             this.lblNeutral.Name = "lblNeutral";
             this.lblNeutral.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.lblNeutral.Size = new System.Drawing.Size(213, 30);
+            this.lblNeutral.Size = new System.Drawing.Size(217, 30);
             this.lblNeutral.TabIndex = 12;
             this.lblNeutral.Text = "Neutral";
             // 
             // picDisgust
             // 
             this.picDisgust.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picDisgust.Location = new System.Drawing.Point(22, 252);
+            this.picDisgust.Location = new System.Drawing.Point(20, 250);
             this.picDisgust.Name = "picDisgust";
             this.picDisgust.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.picDisgust.Properties.Appearance.Options.UseBackColor = true;
@@ -124,15 +128,15 @@
             this.picDisgust.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picDisgust.Properties.ShowMenu = false;
             this.picDisgust.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picDisgust.Size = new System.Drawing.Size(213, 0);
+            this.picDisgust.Size = new System.Drawing.Size(217, 0);
             this.picDisgust.TabIndex = 18;
             // 
             // prgDisgust
             // 
             this.prgDisgust.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgDisgust.Location = new System.Drawing.Point(22, 234);
+            this.prgDisgust.Location = new System.Drawing.Point(20, 232);
             this.prgDisgust.Name = "prgDisgust";
-            this.prgDisgust.Size = new System.Drawing.Size(213, 18);
+            this.prgDisgust.Size = new System.Drawing.Size(217, 18);
             this.prgDisgust.TabIndex = 9;
             // 
             // lblDisgust
@@ -141,17 +145,17 @@
             this.lblDisgust.Appearance.Options.UseFont = true;
             this.lblDisgust.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblDisgust.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDisgust.Location = new System.Drawing.Point(22, 204);
+            this.lblDisgust.Location = new System.Drawing.Point(20, 202);
             this.lblDisgust.Name = "lblDisgust";
             this.lblDisgust.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.lblDisgust.Size = new System.Drawing.Size(213, 30);
+            this.lblDisgust.Size = new System.Drawing.Size(217, 30);
             this.lblDisgust.TabIndex = 8;
             this.lblDisgust.Text = "Znechutenie";
             // 
             // picSurprise
             // 
             this.picSurprise.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picSurprise.Location = new System.Drawing.Point(22, 204);
+            this.picSurprise.Location = new System.Drawing.Point(20, 202);
             this.picSurprise.Name = "picSurprise";
             this.picSurprise.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.picSurprise.Properties.Appearance.Options.UseBackColor = true;
@@ -160,15 +164,15 @@
             this.picSurprise.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picSurprise.Properties.ShowMenu = false;
             this.picSurprise.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picSurprise.Size = new System.Drawing.Size(213, 0);
+            this.picSurprise.Size = new System.Drawing.Size(217, 0);
             this.picSurprise.TabIndex = 17;
             // 
             // prgSurprise
             // 
             this.prgSurprise.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgSurprise.Location = new System.Drawing.Point(22, 186);
+            this.prgSurprise.Location = new System.Drawing.Point(20, 184);
             this.prgSurprise.Name = "prgSurprise";
-            this.prgSurprise.Size = new System.Drawing.Size(213, 18);
+            this.prgSurprise.Size = new System.Drawing.Size(217, 18);
             this.prgSurprise.TabIndex = 7;
             // 
             // lblSurprise
@@ -177,17 +181,17 @@
             this.lblSurprise.Appearance.Options.UseFont = true;
             this.lblSurprise.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblSurprise.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSurprise.Location = new System.Drawing.Point(22, 156);
+            this.lblSurprise.Location = new System.Drawing.Point(20, 154);
             this.lblSurprise.Name = "lblSurprise";
             this.lblSurprise.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.lblSurprise.Size = new System.Drawing.Size(213, 30);
+            this.lblSurprise.Size = new System.Drawing.Size(217, 30);
             this.lblSurprise.TabIndex = 6;
             this.lblSurprise.Text = "Prekvapenie";
             // 
             // picSadness
             // 
             this.picSadness.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picSadness.Location = new System.Drawing.Point(22, 156);
+            this.picSadness.Location = new System.Drawing.Point(20, 154);
             this.picSadness.Name = "picSadness";
             this.picSadness.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.picSadness.Properties.Appearance.Options.UseBackColor = true;
@@ -196,15 +200,15 @@
             this.picSadness.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picSadness.Properties.ShowMenu = false;
             this.picSadness.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picSadness.Size = new System.Drawing.Size(213, 0);
+            this.picSadness.Size = new System.Drawing.Size(217, 0);
             this.picSadness.TabIndex = 16;
             // 
             // prgSadness
             // 
             this.prgSadness.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgSadness.Location = new System.Drawing.Point(22, 138);
+            this.prgSadness.Location = new System.Drawing.Point(20, 136);
             this.prgSadness.Name = "prgSadness";
-            this.prgSadness.Size = new System.Drawing.Size(213, 18);
+            this.prgSadness.Size = new System.Drawing.Size(217, 18);
             this.prgSadness.TabIndex = 5;
             // 
             // lblSadness
@@ -213,17 +217,17 @@
             this.lblSadness.Appearance.Options.UseFont = true;
             this.lblSadness.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblSadness.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSadness.Location = new System.Drawing.Point(22, 108);
+            this.lblSadness.Location = new System.Drawing.Point(20, 106);
             this.lblSadness.Name = "lblSadness";
             this.lblSadness.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.lblSadness.Size = new System.Drawing.Size(213, 30);
+            this.lblSadness.Size = new System.Drawing.Size(217, 30);
             this.lblSadness.TabIndex = 4;
             this.lblSadness.Text = "Smútok";
             // 
             // picAnger
             // 
             this.picAnger.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picAnger.Location = new System.Drawing.Point(22, 108);
+            this.picAnger.Location = new System.Drawing.Point(20, 106);
             this.picAnger.Name = "picAnger";
             this.picAnger.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.picAnger.Properties.Appearance.Options.UseBackColor = true;
@@ -232,15 +236,15 @@
             this.picAnger.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picAnger.Properties.ShowMenu = false;
             this.picAnger.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picAnger.Size = new System.Drawing.Size(213, 0);
+            this.picAnger.Size = new System.Drawing.Size(217, 0);
             this.picAnger.TabIndex = 15;
             // 
             // prgAnger
             // 
             this.prgAnger.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgAnger.Location = new System.Drawing.Point(22, 90);
+            this.prgAnger.Location = new System.Drawing.Point(20, 88);
             this.prgAnger.Name = "prgAnger";
-            this.prgAnger.Size = new System.Drawing.Size(213, 18);
+            this.prgAnger.Size = new System.Drawing.Size(217, 18);
             this.prgAnger.TabIndex = 3;
             // 
             // lblAnger
@@ -249,17 +253,17 @@
             this.lblAnger.Appearance.Options.UseFont = true;
             this.lblAnger.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lblAnger.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAnger.Location = new System.Drawing.Point(22, 60);
+            this.lblAnger.Location = new System.Drawing.Point(20, 58);
             this.lblAnger.Name = "lblAnger";
             this.lblAnger.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.lblAnger.Size = new System.Drawing.Size(213, 30);
+            this.lblAnger.Size = new System.Drawing.Size(217, 30);
             this.lblAnger.TabIndex = 2;
             this.lblAnger.Text = "Hnev";
             // 
             // picHappiness
             // 
             this.picHappiness.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picHappiness.Location = new System.Drawing.Point(22, 60);
+            this.picHappiness.Location = new System.Drawing.Point(20, 58);
             this.picHappiness.Name = "picHappiness";
             this.picHappiness.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.picHappiness.Properties.Appearance.Options.UseBackColor = true;
@@ -268,15 +272,15 @@
             this.picHappiness.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picHappiness.Properties.ShowMenu = false;
             this.picHappiness.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picHappiness.Size = new System.Drawing.Size(213, 0);
+            this.picHappiness.Size = new System.Drawing.Size(217, 0);
             this.picHappiness.TabIndex = 14;
             // 
             // prgHappines
             // 
             this.prgHappines.Dock = System.Windows.Forms.DockStyle.Top;
-            this.prgHappines.Location = new System.Drawing.Point(22, 42);
+            this.prgHappines.Location = new System.Drawing.Point(20, 40);
             this.prgHappines.Name = "prgHappines";
-            this.prgHappines.Size = new System.Drawing.Size(213, 18);
+            this.prgHappines.Size = new System.Drawing.Size(217, 18);
             this.prgHappines.TabIndex = 1;
             // 
             // labelControl1
@@ -285,9 +289,9 @@
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl1.Location = new System.Drawing.Point(22, 22);
+            this.labelControl1.Location = new System.Drawing.Point(20, 20);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(213, 20);
+            this.labelControl1.Size = new System.Drawing.Size(217, 20);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Šťastie";
             // 
@@ -318,6 +322,22 @@
             this.pictureEdit1.Size = new System.Drawing.Size(654, 517);
             this.pictureEdit1.TabIndex = 9;
             // 
+            // txtCount
+            // 
+            this.txtCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCount.AutoSize = true;
+            this.txtCount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.photoStripListBindingSource, "Count", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtCount.Font = new System.Drawing.Font("Tahoma", 6F);
+            this.txtCount.Location = new System.Drawing.Point(247, 625);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(9, 10);
+            this.txtCount.TabIndex = 19;
+            this.txtCount.Text = "0";
+            // 
+            // photoStripListBindingSource
+            // 
+            this.photoStripListBindingSource.DataSource = typeof(Emotions.Gamification.PhotoStripList);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,6 +349,7 @@
             this.Size = new System.Drawing.Size(911, 637);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prgNeutral.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDisgust.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prgDisgust.Properties)).EndInit();
@@ -341,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHappiness.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prgHappines.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoStripListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,5 +388,7 @@
         private DevExpress.XtraEditors.PictureEdit picAnger;
         private DevExpress.XtraEditors.PictureEdit picHappiness;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private System.Windows.Forms.Label txtCount;
+        private System.Windows.Forms.BindingSource photoStripListBindingSource;
     }
 }
