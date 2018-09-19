@@ -11,19 +11,15 @@ namespace PhotoStripPrinting
     {
         public static void Print(IPhotoStripListRepositary repositary)
         {
-            using (RptPhotoStrip report = new RptPhotoStrip()) { 
+            using (RptPhotoStrip report = new RptPhotoStrip())
+            {
                 report.DataSource = new PhotoStripList(repositary).PhotoStrips;
 
                 using (ReportPrintTool tool = new ReportPrintTool(report))
                 {
-                    if (System.Diagnostics.Debugger.IsAttached)
-                    {
-                        tool.ShowRibbonPreviewDialog();
-                    }
-                    else
-                    {
-                        tool.Print();
-                    }
+
+                    tool.ShowRibbonPreviewDialog();
+
                 }
             }
         }
