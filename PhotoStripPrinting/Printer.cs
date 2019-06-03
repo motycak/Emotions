@@ -14,12 +14,9 @@ namespace PhotoStripPrinting
             using (RptPhotoStrip report = new RptPhotoStrip())
             {
                 report.DataSource = new PhotoStripList(repositary).PhotoStrips;
-
                 using (ReportPrintTool tool = new ReportPrintTool(report))
                 {
-
                     tool.ShowRibbonPreviewDialog();
-
                 }
             }
         }
